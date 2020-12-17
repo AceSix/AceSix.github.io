@@ -1,0 +1,204 @@
+<!--
+ * @FilePath: \FDD-visuale:\Energy-IM\recordGIF\animation.html
+ * @Author: Ziang Liu
+ * @Date: 2020-12-17 09:47:13
+ * @LastEditors: Ziang Liu
+ * @LastEditTime: 2020-12-17 10:50:03
+ * @Copyright (C) 2020 SJTU. All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="static/js/CCapture.min.js"></script>
+    <!-- Include WebM Writer if you want to export WebM -->
+    <script src="static/js/webm-writer-0.2.0.js"></script>
+    <!-- Include gifjs if you want to export GIF -->
+    <script src="static/js/gif.js"></script>
+    <!-- Include tar.js if you want to export PNG or JPEG -->
+    <script src="static/js/tar.js"></script>
+    <!-- Include download.js for easier file download -->
+    <script src="static/js/download.js"></script>
+</head>
+
+<body>
+    <canvas id="light" width="500" height="400"></canvas>
+</body>
+<script>
+    var canvas, ctx, p;
+    canvas = document.getElementById('light');
+    ctx = canvas.getContext('2d');
+    radius = canvas.height / 2 - 10
+
+    var capturer = new CCapture({
+        format: 'gif',
+        workersPath: 'static/js/',
+        background: '#ffffff',
+        transparent: 0xffffff
+    });
+
+    capturer.start();
+
+    function render() {
+        requestAnimationFrame(render);
+        capturer.capture(canvas);
+    }
+
+    tim0 = new Date().getTime()
+
+
+    function aaa() {
+        var a, b, c, d, s, tim, q, qt, x, y, r, tx, ty;
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "rgb(0,0,0)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = "lighter";
+
+        tx = canvas.width / 2;
+        ty = canvas.height / 2;
+        tim = new Date().getTime() / 31;
+
+
+        p = [];
+        for (a = 0; a < 3; a++) {
+            b = (a + 1) / 4;
+            x = b;
+            y = 0;
+            r = tim / 13 + a * (2);
+            x += Math.cos(r) * 0.12;
+            y += Math.sin(r) * 0.12;
+            p.push([x, y]);
+        }
+
+        r = tim / 73;
+        q = [];
+        s = [];
+        for (a = 0; a < 3; a++) {
+            x = Math.cos(r) * radius;
+            y = Math.sin(r) * radius;
+            q.push([tx + x, ty + y]);
+            s.push([tx - x, ty - y]);
+            r += Math.PI * 2 / 3;
+        }
+
+        ctx.strokeStyle = "hsl(244,60%,60%)";
+        qt = [];
+        for (a = 0; a < 3; a++) {
+            b = (a + 1) % 3;
+            qt[a] = [];
+            koch(q[a][0], q[a][1], q[b][0], q[b][1], 4, qt[a]);
+            qt[a].push(q[b]);
+        }
+
+        ctx.strokeStyle = "hsla(" + (234) + ",60%,60%,0.08)";
+        for (a = 0; a < 3; a++) {
+            b = qt[a];
+            d = s[(a + 2) % 3];
+            for (c = 0; c < b.length; c++) {
+                ctx.beginPath();
+                ctx.lineTo(d[0], d[1]);
+                ctx.lineTo(b[c][0], b[c][1]);
+                ctx.lineTo(tx, ty);
+                ctx.stroke();
+            }
+        }
+        render()
+        requestAnimationFrame(aaa);
+    }
+
+    function koch(sx, sy, ex, ey, kai, qt) {
+        var a, x, y, p1, tx, ty, px, py, x1, y1;
+        x = ex - sx;
+        y = ey - sy;
+        p1 = [];
+        for (a = 0; a < 3; a++) {
+            px = p[a][0];
+            py = p[a][1];
+            x1 = sx + x * px - y * py;
+            y1 = sy + y * px + x * py;
+            p1.push([x1, y1]);
+        }
+
+        if (kai <= 0) {
+            ctx.beginPath();
+            ctx.lineTo(sx, sy);
+            ctx.lineTo(p1[0][0], p1[0][1]);
+            ctx.lineTo(p1[1][0], p1[1][1]);
+            ctx.lineTo(p1[2][0], p1[2][1]);
+            ctx.lineTo(ex, ey);
+            ctx.stroke();
+            qt.push([sx, sy], p1[0], p1[1], p1[2]);
+        } else {
+            kai--;
+            koch(p1[0][0], p1[0][1], sx, sy, kai, qt);
+            koch(p1[0][0], p1[0][1], p1[1][0], p1[1][1], kai, qt);
+            koch(p1[2][0], p1[2][1], p1[1][0], p1[1][1], kai, qt);
+            koch(p1[2][0], p1[2][1], ex, ey, kai, qt);
+        }
+    }
+    aaa();
+
+
+    setInterval(function() {
+        tim1 = new Date().getTime()
+        if (tim1 - tim0 > 5000) {
+            capturer.stop();
+            capturer.save();
+        }
+    }, 500);
+</script>
+<script>
+    // default save, will download automatically a file called {name}.extension (webm/gif/tar)
+</script>
+<!-- <script>
+    var gif = new GIF({
+        workers: 1,
+        quality: 10,
+        background: '#ffffff',
+        transparent: 0xffffff,
+        width: 500,
+        height: 400
+    });
+    imageElement = document.getElementsByTagName('img')[0];
+    gif.addFrame(document.getElementsByTagName('canvas')[0], {
+        delay: 200
+    });
+    gif.addFrame(document.getElementsByTagName('canvas')[0], {
+        delay: 200
+    });
+    gif.addFrame(document.getElementsByTagName('canvas')[0], {
+        delay: 200
+    });
+    gif.addFrame(ctx, {
+        copy: true
+    }); //合成图片成功后 gif.on('finished', function(blob) { window.open(URL.createObjectURL(blob)); }); //渲染图片 gif.render();
+</script> -->
+<!-- 
+<script>
+    const stream = canvas.captureStream();
+    const recorder = new MediaRecorder(stream, {
+        mimeType: 'video/webm'
+    });
+    const data = [];
+    recorder.ondataavailable = function(event) {
+        if (event.data && event.data.size) {
+            data.push(event.data);
+        }
+    };
+    recorder.onstop = () => {
+        const url = URL.createObjectURL(new Blob(data, {
+            type: 'video/webm'
+        }));
+        document.querySelector("#videoContainer").style.display = "block";
+        document.querySelector("video").src = url;
+    };
+    console.log("start recording");
+    recorder.start();
+    setTimeout(() => {
+        recorder.stop();
+    }, 730);
+</script> -->
+
+</html>
