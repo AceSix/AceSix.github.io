@@ -3,7 +3,7 @@
  * @Author: Ziang Liu
  * @Date: 2020-12-24 17:16:40
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2020-12-24 17:26:53
+ * @LastEditTime: 2020-12-24 17:29:10
  * @Copyright (C) 2020 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -472,6 +472,178 @@
             </ul>
         </div>
     </div>
+
+    <script src="/static/assets/js/core/jquery.min.js"></script>
+    <script src="/static/assets/js/core/popper.min.js"></script>
+    <script src="/static/assets/js/core/bootstrap.min.js"></script>
+    <script src="/static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Chart JS -->
+    <script src="/static/assets/js/plugins/chartjs.min.js"></script>
+    <script src="/static/assets/js/plugins/Chart.bundle.js"></script>
+    <script src="/static/assets/js/plugins/4/core.js"></script>
+    <script src="/static/assets/js/plugins/4/charts.js"></script>
+    <!-- 3D JS -->
+    <script src="/static/assets/js/plugins/three.min.js"></script>
+    <script src="/static/assets/js/plugins/OrbitControls.js"></script>
+    <script src="/static/assets/js/plugins/DeviceOrientationControls.js"></script>
+    <script src="/static/assets/js/plugins/StereoEffect.js"></script>
+    <script src="/static/assets/js/plugins/d3.v3.min.js"></script>
+
+    <!-- load data in this data script -->
+    <!-- <script src="https://raw.githack.com/syt123450/giojs/master/assets/data/sampleData.js"></script> -->
+    <!--  Notifications Plugin    -->
+    <script src="/static/assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+    <!-- <script src="/static/assets/js/black-dashboard.min.js?v=1.0.0"></script>  Black Dashboard DEMO methods, don't include it in your project! -->
+    <!-- <script src="/static/assets/demo/bar.js"></script>
+<script src="/static/assets/demo/bubble.js"></script>
+<script src="/static/assets/demo/colors.js"></script>
+<script src="/static/assets/demo/demo.js"></script>
+<script src="/static/assets/demo/globe.js"></script>
+<script src="/static/assets/demo/gradientConfig.js"></script>
+<script src="/static/assets/demo/line.js"></script>
+<script src="/static/assets/demo/mix.js"></script>
+<script src="/static/assets/demo/pie.js"></script>
+<script src="/static/assets/demo/radar.js"></script>
+<script src="/static/assets/demo/scatter.js"></script>
+<link href="/static/assets/demo/demo.css" rel="stylesheet" /> -->
+
+    <script type="text/javascript">
+        var now = new Date();
+        var number = now.getYear().toString() + now.getMonth().toString() + now.getDate().toString() +
+            now.getHours().toString() + now.getMinutes().toString() + now.getSeconds().toString();
+        document.write(' <link rel="stylesheet" href="/static/assets/demo/demo.css?ver=' + number + '" type="text/css">');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/bar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/circlebar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/bubble.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/funnel.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/colors.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/array.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/globe.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/light.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/gradientConfig.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/line.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/mix.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/pie.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/radar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/scatter.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/demo.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/demo/demo.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/assets/js/L2Dwidget.min.js?ver=' + number + '"></scr' + 'ipt>');
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $().ready(function() {
+                $sidebar = $('.sidebar');
+                $navbar = $('.navbar');
+                $main_panel = $('.main-panel');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+                white_color = false;
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+                $('.fixed-plugin a').click(function(event) {
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .background-color span').click(function() {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data', new_color);
+                    }
+
+                    if ($main_panel.length != 0) {
+                        $main_panel.attr('data', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data', new_color);
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function() {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function() {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+
+                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (white_color == true) {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').removeClass('white-content');
+                        }, 900);
+                        white_color = false;
+                    } else {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').addClass('white-content');
+                        }, 900);
+
+                        white_color = true;
+                    }
+
+
+                });
+
+                $('.light-badge').click(function() {
+                    $('body').addClass('white-content');
+                });
+
+                $('.dark-badge').click(function() {
+                    $('body').removeClass('white-content');
+                });
+            });
+        });
+    </script>
+
 
 </body>
 
