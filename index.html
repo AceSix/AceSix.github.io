@@ -3,7 +3,7 @@
  * @Author: Ziang Liu
  * @Date: 2020-12-24 17:16:40
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2020-12-24 18:24:28
+ * @LastEditTime: 2020-12-24 18:29:33
  * @Copyright (C) 2020 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
     <script src="/static/js/plugins/d3.v3.min.js"></script>
 
     <script src="/static/js/plugins/bootstrap-notify.js"></script>
-    <script src="/static/js/plugins/L2Dwidget.min.js"></script>
+    <script src="/static/js/L2Dwidget.min.js"></script>
 
 
 </head>
@@ -410,41 +410,9 @@
                         </div>
                     </div>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="190" height="180" class="star">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="190" height="180" class="star">
                     <polygon points="100,0 160,180 10,60 190,60 40,180" style="fill:yellow;stroke:yellow;stroke-width:1;"/>
-                  </svg>
-
-
-
-                <script>
-                    $(document).ready(function() {
-                        // Javascript method's body can be found in assets/js/demos.js
-                        demo.initDashboardPageCharts();
-                        make_earth();
-                    });
-                    L2Dwidget
-                        .on('*', (name) => {
-                            console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
-                        })
-                        .init({
-                            model: {
-                                // jsonPath: "/static/l2d/",
-                                jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
-                                scale: 1
-                            },
-                            dialog: {
-                                // 开启对话框
-                                enable: true,
-                                script: {
-                                    'tap body': 'Is it not a beautiful planet?',
-                                    'tap face': 'Please send any advice to ziang_liu@brown.edu!'
-                                }
-                            },
-                            react: {
-                                opacity: 0.5,
-                            }
-                        });
-                </script>
+                  </svg> -->
 
             </div>
 
@@ -510,9 +478,36 @@
         document.write('<script language="javascript" type="text/javascript" src="/static/demo/radar.js?ver=' + number + '"></scr' + 'ipt>');
         document.write('<script language="javascript" type="text/javascript" src="/static/demo/scatter.js?ver=' + number + '"></scr' + 'ipt>');
         document.write('<script language="javascript" type="text/javascript" src="/static/demo/demo.js?ver=' + number + '"></scr' + 'ipt>');
-        document.write('<script language="javascript" type="text/javascript" src="/static/demo/demo.js?ver=' + number + '"></scr' + 'ipt>');
     </script>
-
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+            make_earth();
+        });
+        L2Dwidget
+            .on('*', (name) => {
+                console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+            })
+            .init({
+                model: {
+                    // jsonPath: "/static/l2d/",
+                    jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
+                    scale: 1
+                },
+                dialog: {
+                    // 开启对话框
+                    enable: true,
+                    script: {
+                        'tap body': 'Is it not a beautiful planet?',
+                        'tap face': 'Please send any advice to ziang_liu@brown.edu!'
+                    }
+                },
+                react: {
+                    opacity: 0.5,
+                }
+            });
+    </script>
     <script>
         $(document).ready(function() {
             $().ready(function() {
