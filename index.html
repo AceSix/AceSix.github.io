@@ -1,0 +1,626 @@
+<!--
+ * @FilePath: \AceSix.github.io\index.html
+ * @Author: Ziang Liu
+ * @Date: 2020-12-24 17:16:40
+ * @LastEditors: Ziang Liu
+ * @LastEditTime: 2020-12-24 18:29:33
+ * @Copyright (C) 2020 SJTU. All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/energy-im_icon_gray.png">
+    <link rel="icon" type="image/png" href="/static/img/energy-im_icon_gray.png">
+    <title>
+        HVAC AI Dashboard | SJTU
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="/static/fonts/poppins.css" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="/static/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="/static/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <!-- Aditional CSS -->
+
+    <script type="text/javascript">
+        // <![CDATA[
+        function loading() {
+            $("#preloading").show();
+            $(".content").hide();
+            $(".footer").hide();
+        }
+        // ]]>
+    </script>
+    <script src="/static/js/core/jquery.min.js"></script>
+    <script src="/static/js/core/popper.min.js"></script>
+    <script src="/static/js/core/bootstrap.min.js"></script>
+    <script src="/static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Chart JS -->
+    <script src="/static/js/plugins/chartjs.min.js"></script>
+    <script src="/static/js/plugins/Chart.bundle.js"></script>
+    <script src="/static/js/plugins/4/core.js"></script>
+    <script src="/static/js/plugins/4/charts.js"></script>
+    <!-- 3D JS -->
+    <script src="/static/js/plugins/three.min.js"></script>
+    <script src="/static/js/plugins/OrbitControls.js"></script>
+    <script src="/static/js/plugins/DeviceOrientationControls.js"></script>
+    <script src="/static/js/plugins/StereoEffect.js"></script>
+    <script src="/static/js/plugins/d3.v3.min.js"></script>
+
+    <script src="/static/js/plugins/bootstrap-notify.js"></script>
+    <script src="/static/js/L2Dwidget.min.js"></script>
+
+
+</head>
+
+<body class="white-content">
+
+    <div class="wrapper">
+
+        <div class="sidebar" data="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a class="simple-text logo-mini">
+                    AI
+                  </a>
+                    <a class="simple-text logo-normal">
+                    Dashboard
+                  </a>
+                </div>
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="/">
+                            <i class="tim-icons icon-chart-bar-32"></i>
+                            <p>Chiller Status</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/ui-maps">
+                            <i class="tim-icons icon-chart-bar-32"></i>
+                            <p>Map Demo</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://jin.sjtu.edu.cn/">
+                            <i class="tim-icons icon-align-center"></i>
+                            <p>About</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://jin.sjtu.edu.cn/">
+                            <i class="tim-icons icon-email-85"></i>
+                            <p>Contact Us</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href={{ url_for( 'base_blueprint.logout') }}>
+                            <i class="tim-icons icon-user-run"></i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
+
+                    <li class="active-pro">
+                        <center><img class="img-fluid" src="/static/img/SJTU_logo_llg.png"></center>
+                        <a style="padding-top: 0; margin-top: 0;">
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="main-panel" data="blue">
+
+            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <a href="{{ url_for('base_blueprint.login') }}"><img src="/static/img/energy-im_logo_lightgray.png" style="height: 40px; margin-top: 0.3rem; padding-bottom: 0rem; margin-left: 0.5rem;"></img>
+                        </a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation" style="margin-top: 0.8rem; padding-bottom: 0rem">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                  </button>
+                    <div class="collapse navbar-collapse" id="navigation">
+
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="{{ url_for('home_blueprint.index') }}" class="nav-link" style="padding-top: 1.1rem; padding-bottom: 0rem;">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://jin.sjtu.edu.cn/" class="nav-link" style="padding-top: 1.1rem; padding-bottom: 0rem;">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://jin.sjtu.edu.cn/" class="nav-link" style="padding-top: 1.1rem; padding-bottom: 0rem;">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url_for('base_blueprint.logout') }}" class="nav-link" style="padding-top: 1.1rem; padding-bottom: 0rem;">Logout</a>
+                            </li>
+                            <li class="separator d-lg-none"></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </nav>
+            <div id="preloading"></div>
+
+            <div class="content">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="row">
+                                    <div class="col-sm-6 text-left">
+                                        <h5 class="card-category">Demo</h5>
+                                        <h2 class="card-title">Sub title</h2>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                            <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                                  <input type="radio" name="options" checked>
+                                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">1</span>
+                                  <span class="d-block d-sm-none">
+                                    <i class="tim-icons icon-single-02"></i>
+                                  </span>
+                                </label>
+                                            <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                  <input type="radio" class="d-none d-sm-none" name="options">
+                                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">2</span>
+                                  <span class="d-block d-sm-none">
+                                    <i class="tim-icons icon-gift-2"></i>
+                                  </span>
+                                </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartBig"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> purple</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartLinePurple"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> blue</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartLineBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> green</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartLineGreen"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> radar</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartRadarBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> pie</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartPieBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> polar</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartPolarBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> bubble</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartBubbleBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <h5 class="card-category">Demo</h5>
+                                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> scatter</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartScatterBlue"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">Mixed</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="chartMix"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">CircleBarChart</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div peak-chart data="data">
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="724px" height="400px" overflow="visible" xml:space="preserve">
+                                        <g id="circleBarCharts">
+                                            <!-- Web Circle Bar Chart -->
+                                            <g id="circleBar-web-group" transform="translate(0,0)">
+                                              <image id="circleBar-web-icon" opacity="0" x="166" y="112" overflow="visible" width="98" height="77" xlink:href="./static/img/gear.png" />
+                                                <text id="circleBar-web-text" opacity="0" x="200" y="143"></text>
+                                                <g id="circleBar-web-chart" transform="translate(215,150)"></g>
+                                                <clippath id="circleBar-web-clipPath">
+                                                    <rect id="circleBar-web-clipLabels" x="205" y="215" width="180" height="0"></rect>
+                                                </clippath>
+                                                <g id="circleBar-web-legend" clip-path="url(#circleBar-web-clipPath)">
+                                                    <text id="circleBar-web-values" transform="translate(222,225)"></text>
+                                                    <text id="circleBar-web-labels" transform="translate(277,225)"></text>
+                                                </g>
+                                            </g>
+                                            <!-- END: Web Circle Bar Chart -->
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">FunnelChart</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart_triangle" style="width:500px; height:400px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">ArrayChart</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="array" width="500" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card card-chart">
+                            <div class="card-header ">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">LightShow</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="light" width="500" height="300">
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card card-chart">
+                            <div class="card-header">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Demo</h5>
+                                    <h2 class="card-title">Earth</h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-globe">
+                                    <div id="globalArea" class="globalArea"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="190" height="180" class="star">
+                    <polygon points="100,0 160,180 10,60 190,60 40,180" style="fill:yellow;stroke:yellow;stroke-width:1;"/>
+                  </svg> -->
+
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="copyright" style="margin-top: 0px;">
+                        <h5 style="margin-bottom: 0px;">Shanghai Jiao Tong University - <a href="http://jin.sjtu.edu.cn/">Smart Building and AI for HVAC&R</a> Reserach Group</h5>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+
+    <div class="fixed-plugin">
+        <div class="dropdown show-dropdown">
+            <a href="#" data-toggle="dropdown">
+                <i class="tim-icons tim-icons-lg icon-bulb-63" style="color: black; padding-top: 8px; padding-bottom: 8px"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="header-title" style="color: black;"> Change Theme Colors </li>
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger background-color">
+                        <div class="badge-colors text-center">
+                            <span class="badge filter badge-primary" data-color="primary"></span>
+                            <span class="badge filter badge-info active" data-color="blue"></span>
+                            <span class="badge filter badge-success" data-color="green"></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+                <li class="adjustments-line text-center color-change">
+                    <span class="color-label" style="color: black;">LIGHT MODE</span>
+                    <span class="badge light-badge mr-2"></span>
+                    <span class="badge dark-badge ml-2"></span>
+                    <span class="color-label" style="color: black;">DARK MODE</span>
+                </li>
+                <li> </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var now = new Date();
+        var number = now.getYear().toString() + now.getMonth().toString() + now.getDate().toString() +
+            now.getHours().toString() + now.getMinutes().toString() + now.getSeconds().toString();
+        document.write(' <link rel="stylesheet" href="/static/demo/demo.css?ver=' + number + '" type="text/css">');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/bar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/circlebar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/bubble.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/funnel.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/colors.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/array.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/globe.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/light.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/gradientConfig.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/line.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/mix.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/pie.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/radar.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/scatter.js?ver=' + number + '"></scr' + 'ipt>');
+        document.write('<script language="javascript" type="text/javascript" src="/static/demo/demo.js?ver=' + number + '"></scr' + 'ipt>');
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+            make_earth();
+        });
+        L2Dwidget
+            .on('*', (name) => {
+                console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+            })
+            .init({
+                model: {
+                    // jsonPath: "/static/l2d/",
+                    jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
+                    scale: 1
+                },
+                dialog: {
+                    // 开启对话框
+                    enable: true,
+                    script: {
+                        'tap body': 'Is it not a beautiful planet?',
+                        'tap face': 'Please send any advice to ziang_liu@brown.edu!'
+                    }
+                },
+                react: {
+                    opacity: 0.5,
+                }
+            });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $().ready(function() {
+                $sidebar = $('.sidebar');
+                $navbar = $('.navbar');
+                $main_panel = $('.main-panel');
+
+                $full_page = $('.full-page');
+
+                $sidebar_responsive = $('body > .navbar-collapse');
+                sidebar_mini_active = true;
+                white_color = false;
+
+                window_width = $(window).width();
+
+                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+                $('.fixed-plugin a').click(function(event) {
+                    if ($(this).hasClass('switch-trigger')) {
+                        if (event.stopPropagation) {
+                            event.stopPropagation();
+                        } else if (window.event) {
+                            window.event.cancelBubble = true;
+                        }
+                    }
+                });
+
+                $('.fixed-plugin .background-color span').click(function() {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+
+                    var new_color = $(this).data('color');
+
+                    if ($sidebar.length != 0) {
+                        $sidebar.attr('data', new_color);
+                    }
+
+                    if ($main_panel.length != 0) {
+                        $main_panel.attr('data', new_color);
+                    }
+
+                    if ($full_page.length != 0) {
+                        $full_page.attr('filter-color', new_color);
+                    }
+
+                    if ($sidebar_responsive.length != 0) {
+                        $sidebar_responsive.attr('data', new_color);
+                    }
+                });
+
+                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (sidebar_mini_active == true) {
+                        $('body').removeClass('sidebar-mini');
+                        sidebar_mini_active = false;
+                        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                    } else {
+                        $('body').addClass('sidebar-mini');
+                        sidebar_mini_active = true;
+                        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                    }
+
+                    // we simulate the window Resize so the charts will get updated in realtime.
+                    var simulateWindowResize = setInterval(function() {
+                        window.dispatchEvent(new Event('resize'));
+                    }, 180);
+
+                    // we stop the simulation of Window Resize after the animations are completed
+                    setTimeout(function() {
+                        clearInterval(simulateWindowResize);
+                    }, 1000);
+                });
+
+                $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                    var $btn = $(this);
+
+                    if (white_color == true) {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').removeClass('white-content');
+                        }, 900);
+                        white_color = false;
+                    } else {
+
+                        $('body').addClass('change-background');
+                        setTimeout(function() {
+                            $('body').removeClass('change-background');
+                            $('body').addClass('white-content');
+                        }, 900);
+
+                        white_color = true;
+                    }
+
+
+                });
+
+                $('.light-badge').click(function() {
+                    $('body').addClass('white-content');
+                });
+
+                $('.dark-badge').click(function() {
+                    $('body').removeClass('white-content');
+                });
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
