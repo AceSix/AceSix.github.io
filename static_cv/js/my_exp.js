@@ -3,10 +3,10 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2021-06-30 16:53:40
+ * @LastEditTime: 2021-06-30 16:58:50
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
-var i = "./img/";
+var i = "./static/img/";
 my_experiences = [
     {
         id: "2011_7",
