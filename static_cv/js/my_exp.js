@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2021-06-30 17:58:44
+ * @LastEditTime: 2021-06-30 18:00:12
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -46,7 +46,7 @@ my_experiences = [
         tags: ["publication"],
         link: "https://ieeexplore.ieee.org/document/8702610",
         img: i + "testbed.png",
-        cdesc: "Design of a reconfigurable multi-sensor testbed for autonomous vehicles and ground robots",
+        cdesc: "ISCAS2019, Design of a reconfigurable multi-sensor testbed for autonomous vehicles and ground robots",
     },
     {
         id: "2020_5",
