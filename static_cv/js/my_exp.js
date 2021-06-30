@@ -3,10 +3,10 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2021-06-30 17:51:24
+ * @LastEditTime: 2021-06-30 17:58:44
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
-var i = "./static/img/";
+var i = "./static_cv/img/";
 my_experiences = [
     {
         id: "2020_6",
@@ -45,7 +45,7 @@ my_experiences = [
         time: ["2019-8", "2019-12"],
         tags: ["publication"],
         link: "https://ieeexplore.ieee.org/document/8702610",
-        img: i + "platform.png",
+        img: i + "testbed.png",
         cdesc: "Design of a reconfigurable multi-sensor testbed for autonomous vehicles and ground robots",
     },
     {
@@ -64,7 +64,7 @@ my_experiences = [
         cname: "FOTAST",
         time: ["2021-3", "2021-6"],
         tags: ["publication"],
-        img: i + "fost.jpg",
+        img: i + "fost.png",
         link: "https://link.springer.com/chapter/10.1007/978-3-030-67832-6_4",
         cdesc: "MMM2021, Fast Optimal Transport Artistic Style Transfer",
     },
@@ -87,5 +87,15 @@ my_experiences = [
         img: i + "blower.jpg",
         link: "",
         cdesc: "系统设计的实践，遗憾的是忽略了气泵的噪音比笛子声音更大",
+    },
+    {
+        id: "2021_4",
+        name: "coffee trip",
+        cname: "咖啡之旅",
+        time: ["2021-04", "now"],
+        tags: ["life"],
+        img: i + "coffee.png",
+        link: "",
+        cdesc: "开始尝试世上各种咖啡",
     },
 ];
