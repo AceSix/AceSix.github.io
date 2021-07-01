@@ -65,19 +65,19 @@
     /*border: solid 1px #099;*/
     height: auto;
     display: inline-block;
-    color: #099;
+    color: #0af;
     padding: 5px 10px;
     border-radius: 0px;
     margin: 0 5px;
 }
 
 .tag-selector:hover {
-    background-color: #0ff;
+    background-color: #09f;
     color: #000;
 }
 
 .tag-selector-active {
-    background-color: #0dd;
+    background-color: #09f;
     color: #000;
     border-radius: 0px;
 }

@@ -28,7 +28,7 @@
 }
 
 #title span {
-    color: rgb(0, 119, 255);
+    color: #09f;
 }
 
 #switch {
@@ -41,7 +41,7 @@
 }
 
 #switch .active {
-    color: rgb(0, 119, 255);
+    color: #09f;
 }
 
 #switch .normal {
@@ -62,7 +62,7 @@
 
 #switch .cn:hover,
 #switch .en:hover {
-    color: rgb(0, 119, 255);
+    color: #09f;
 }
 
 html,
@@ -104,13 +104,13 @@ body {
 }
 
 .info-line {
-    color: rgb(0, 119, 255);
+    color: #09f;
     font-size: 16px;
 }
 
 .acknowlegement {
     position: absolute;
-    color: blue;
+    color: rgb(0, 255, 242);
     font-size: 10px;
     bottom: 1%;
 }
