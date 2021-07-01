@@ -2,40 +2,69 @@
  * @FilePath: \AceSix.github.io\cv.html
  * @Author: AceSix
  * @Date: 2021-06-30 16:48:33
- * @LastEditors: AceSix
- * @LastEditTime: 2021-06-30 18:02:02
+ * @LastEditors: Ziang Liu
+ * @LastEditTime: 2021-07-01 11:00:17
  * Copyright (C) 2021 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="UTF-8">
-  <title id="title">CV.LiuZiAng</title>
-  <link rel="stylesheet" href="./static_cv/css/grids.css">
-  <link rel="stylesheet" href="./static_cv/css/index.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title id="title">CV.LiuZiAng</title>
+    <link rel="stylesheet" href="./static_cv/css/grids.css">
+    <link rel="stylesheet" href="./static_cv/css/index.css">
+    <script src="/static/js/L2Dwidget.min.js"></script>
 </head>
 <style type="text/css">
+
 </style>
+
 <body>
-  <div id="grid-container" class="container" style="z-index:0;"></div>
-  <div id="ui-container" class="container" style="z-index:1;">
-    <div id="title">Liu Zi'Ang.<span>work</span></div>
-    <div id="switch">
-      <div class="en active">EN</div>
-      <div class="cn normal">中文</div>
+    <div id="grid-container" class="container" style="z-index:0;"></div>
+    <div id="ui-container" class="container" style="z-index:1;">
+        <div id="title">Liu Zi'Ang.<span>work</span></div>
+        <div id="switch">
+            <div class="en active">EN</div>
+            <div class="cn normal">中文</div>
+        </div>
+        <div class="panel-left"></div>
+        <div class="panel-right"></div>
+        <div class="tag-container"></div>
+        <div class="acknowlegement">Thank ZhouNingyi for creating this template</div>
     </div>
-    <div class="panel-left"></div>
-    <div class="panel-right"></div>
-    <div class="tag-container"></div>
-    <div class="acknowlegement">Thank ZhouNingyi for creating this template</div>
-  </div>
-  
-  <!-- <script src="./../cube.min.js"></script> -->
-  <script src="./static_cv/lib/zepto/zepto.min.js"></script>
-  <script src="./static_cv/js/my_exp.js"></script>
-  <script src="./static_cv/js/index.js"></script>
-  <script type="text/javascript">
-  
-  </script>
+
+    <!-- <script src="./../cube.min.js"></script> -->
+    <script src="./static_cv/lib/zepto/zepto.min.js"></script>
+    <script src="./static_cv/js/my_exp.js"></script>
+    <script src="./static_cv/js/index.js"></script>
+    <script type="text/javascript">
+        L2Dwidget
+            .on('*', (name) => {
+                console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+            })
+            .init({
+                model: {
+                    // jsonPath: "/static/l2d/",
+                    jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
+                    scale: 1
+                },
+                dialog: {
+                    // 开启对话框
+                    enable: true,
+                    script: {
+                        'tap body': 'Is it not a beautiful planet?',
+                        'tap face': 'Please send any advice to ziang_liu@brown.edu!'
+                    }
+                },
+                react: {
+                    opacity: 0.5,
+                },
+                mobile: {
+                    enable: true
+                }
+            });
+    </script>
 </body>
 
 </html>
