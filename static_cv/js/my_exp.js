@@ -2,13 +2,12 @@
  * @FilePath: \AceSix.github.io\static_cv\js\my_exp.js
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
- * @LastEditors: AceSix
- * @LastEditTime: 2021-06-30 18:00:12
+ * @LastEditors: Ziang Liu
+ * @LastEditTime: 2021-07-01 10:53:19
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
-my_experiences = [
-    {
+my_experiences = [{
         id: "2020_6",
         name: "Graduation from SJTU",
         cname: "上海交大，毕业",
@@ -97,5 +96,35 @@ my_experiences = [
         img: i + "coffee.png",
         link: "",
         cdesc: "开始尝试世上各种咖啡",
+    },
+    {
+        id: "2016_10",
+        name: "Coding",
+        cname: "编程",
+        time: ["2016-10", "now"],
+        tags: ["skill"],
+        img: i + "",
+        link: "",
+        cdesc: "熟悉python,C++,javascript，C和java也写过一点点",
+    },
+    {
+        id: "2021_4",
+        name: "Front-end",
+        cname: "前端开发",
+        time: ["2018-04", "now"],
+        tags: ["skill"],
+        img: i + "",
+        link: "",
+        cdesc: "PyQt, Vue, Electron都尝试过了，网络编程也还好",
+    },
+    {
+        id: "2021_2",
+        name: "Back-end",
+        cname: "后端开发",
+        time: ["2019-01", "now"],
+        tags: ["skill"],
+        img: i + "",
+        link: "",
+        cdesc: "入门级别的软件设计，能独立承担深度学习算法的研究，有idea但经常不work",
     },
 ];
