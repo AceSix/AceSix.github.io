@@ -28,7 +28,7 @@
 }
 
 #title span {
-    color: #0ff;
+    color: rgb(0, 119, 255);
 }
 
 #switch {
@@ -41,7 +41,7 @@
 }
 
 #switch .active {
-    color: #0ff;
+    color: rgb(0, 119, 255);
 }
 
 #switch .normal {
@@ -62,7 +62,7 @@
 
 #switch .cn:hover,
 #switch .en:hover {
-    color: #0ff;
+    color: rgb(0, 119, 255);
 }
 
 html,
@@ -104,7 +104,7 @@ body {
 }
 
 .info-line {
-    color: #0ff;
+    color: rgb(0, 119, 255);
     font-size: 16px;
 }
 
