@@ -4,7 +4,7 @@
     height: 100%;
     display: block;
     overflow: hidden;
-    background: rgba(28, 191, 255, 0.219);
+    background: #000;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     perspective: 250px;
@@ -65,19 +65,19 @@
     /*border: solid 1px #099;*/
     height: auto;
     display: inline-block;
-    color: rgb(25, 48, 255);
+    color: #099;
     padding: 5px 10px;
     border-radius: 0px;
     margin: 0 5px;
 }
 
 .tag-selector:hover {
-    background-color: rgb(25, 48, 255);
+    background-color: #0ff;
     color: #000;
 }
 
 .tag-selector-active {
-    background-color: rgb(25, 48, 255);
+    background-color: #0dd;
     color: #000;
     border-radius: 0px;
 }
