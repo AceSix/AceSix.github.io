@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 11:26:48
+ * @LastEditTime: 2021-07-01 11:51:15
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -13,7 +13,7 @@ my_experiences = [{
         cname: "编程",
         time: ["2016-10", "now"],
         tags: ["skill"],
-        img: i + "",
+        img: i + "coding.png",
         link: "",
         cdesc: "熟悉python,C++,javascript，C和java也写过一点点",
     },
