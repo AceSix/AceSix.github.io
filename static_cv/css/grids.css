@@ -35,6 +35,8 @@
     overflow: hidden;
     border: solid 1px transparent;
     cursor: pointer;
+    color: #09f;
+    border: 1px solid #09f;
 }
 
 .grid-node:hover {
