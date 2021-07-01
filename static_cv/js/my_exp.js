@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 10:58:20
+ * @LastEditTime: 2021-07-01 11:03:40
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -52,7 +52,7 @@ my_experiences = [{
         name: "blowing robot",
         cname: "吹笛机器人",
         time: ["2019-01", "2019-06"],
-        tags: ["skill"],
+        tags: ["project"],
         img: i + "blower.jpg",
         link: "",
         cdesc: "系统设计的实践，遗憾的是忽略了气泵的噪音比笛子声音更大",
