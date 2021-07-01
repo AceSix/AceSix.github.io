@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 11:03:40
+ * @LastEditTime: 2021-07-01 11:23:57
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -16,6 +16,16 @@ my_experiences = [{
         img: i + "",
         link: "",
         cdesc: "熟悉python,C++,javascript，C和java也写过一点点",
+    },
+    {
+        id: "2017_8",
+        name: "English",
+        cname: "英语",
+        time: ["2016-10", "now"],
+        tags: ["skill"],
+        img: i + "",
+        link: "",
+        cdesc: "TOEFL 107，GRE 323，而且我是不需要复习的^_^",
     },
     {
         id: "2018_9",
@@ -48,6 +58,16 @@ my_experiences = [{
         cdesc: "算是比较有用的技能吧，但是并没有做出更复杂的东西",
     },
     {
+        id: "2019_2",
+        name: "Badminton",
+        cname: "羽毛球",
+        time: ["2017-09", "now"],
+        tags: ["life"],
+        img: i + "",
+        link: "",
+        cdesc: "随着学院拿了两届亚军，也是会打一点啦",
+    },
+    {
         id: "2019_3",
         name: "blowing robot",
         cname: "吹笛机器人",
@@ -57,7 +77,16 @@ my_experiences = [{
         link: "",
         cdesc: "系统设计的实践，遗憾的是忽略了气泵的噪音比笛子声音更大",
     },
-
+    {
+        id: "2019_8",
+        name: "French",
+        cname: "法语",
+        time: ["2018-12", "2020-05"],
+        tags: ["skill"],
+        img: i + "",
+        link: "",
+        cdesc: "差不多只会回答Oui/Non的水平吧...",
+    },
     {
         id: "2019_9",
         name: "CV Lab",
