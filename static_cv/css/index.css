@@ -109,6 +109,7 @@ body {
 }
 
 .acknowlegement {
+    position: absolute;
     color: blue;
     font-size: 10px;
     bottom: 1%;
