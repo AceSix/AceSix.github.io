@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 11:23:57
+ * @LastEditTime: 2021-07-01 11:26:48
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -157,6 +157,14 @@ my_experiences = [{
         link: "https://link.springer.com/chapter/10.1007/978-3-030-67832-6_4",
         cdesc: "MMM2021, Fast Optimal Transport Artistic Style Transfer",
     },
-
-
+    {
+        id: "2021_7",
+        name: "Brown",
+        cname: "布朗",
+        time: ["2021-7", "?"],
+        tags: ["degree"],
+        img: i + "",
+        link: "",
+        cdesc: "Gap一年了，快让我过去吧...",
+    },
 ];
