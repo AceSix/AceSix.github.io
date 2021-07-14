@@ -2,8 +2,8 @@
  * @FilePath: \AceSix.github.io\static_cv\js\my_exp.js
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
- * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 11:51:15
+ * @LastEditors: AceSix
+ * @LastEditTime: 2021-07-01 14:10:46
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -26,6 +26,16 @@ my_experiences = [{
         img: i + "",
         link: "",
         cdesc: "TOEFL 107，GRE 323，而且我是不需要复习的^_^",
+    },
+    {
+        id: "2017_10",
+        name: "Cat",
+        cname: "猫党",
+        time: ["2017-10", "now"],
+        tags: ["life"],
+        img: i + "cat.jpg",
+        link: "",
+        cdesc: "How to pet a wild cat",
     },
     {
         id: "2018_9",
