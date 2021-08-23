@@ -1,0 +1,343 @@
+<!--
+ * @FilePath: \AceSix.github.io\split.html
+ * @Author: Ziang Liu
+ * @Date: 2020-12-24 17:16:40
+ * @LastEditors: AceSix
+ * @LastEditTime: 2021-08-22 17:30:35
+ * @Copyright (C) 2020 SJTU. All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Check Split Tool
+    </title>
+
+    <script type="text/javascript">
+        // <![CDATA[
+        function loading() {
+            $("#preloading").show();
+            $(".content").hide();
+            $(".footer").hide();
+        }
+        // ]]>
+
+        var orders = [];
+        var balance1 = 0;
+        var balance2 = 0;
+        var balance3 = 0;
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</head>
+<style>
+    .content {
+        top: 0%;
+    }
+
+    .footer {
+        background-color: cornflowerblue;
+        height: 35px;
+    }
+
+    .card {
+        margin: 1% 1% 1% 1%;
+    }
+</style>
+<style>
+    .payer {
+        margin: 1% 1% 1% 1%;
+    }
+
+    .check-label{
+        margin-left: 10%;
+        width: 30%;
+    }
+
+    .order-info {
+        justify-content:space-between;
+    }
+    .order-place {
+        margin: 0% 6%;
+    }
+    
+    .balance div{
+        width: 20%;
+        margin : 0 6%;
+    }
+
+    .balance h5{
+        width: 30%;
+        margin-right : 10%;
+        margin-left : 10%;
+    }
+
+    .del-order {
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        right: 0%;
+    }
+</style>
+
+<body class="white-content">
+
+    <div class="wrapper">
+
+        <div id="preloading"></div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-2 col-sm-1">
+                </div>
+                <div class="col-lg-8 col-sm-10">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Balance</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id='input-form'>
+                                <div class="col d-flex balance">
+                                    <h5>ZJH to ZHX</h5>
+                                    <div id='balance1'>0</div>
+                                </div>
+                                <div class="col d-flex balance">
+                                    <h5>ZHX to LZA</h5>
+                                    <div id='balance2'>0</div>
+                                </div>
+                                <div class="col d-flex balance">
+                                    <h5>LZA to ZJH</h5>
+                                    <div id='balance3'>0</div>
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-sm-1">
+                </div>
+                <div class="col-lg-8 col-sm-10">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h3 class="card-category">Transactions</h3>
+                        </div>
+                        <div class="card-body" id="order-history">
+                            <div class="col d-flex order-info">
+                                <div class="order-place">
+                                    <h5>name</h5>
+                                </div>
+                                <div class="order-place">
+                                    <h5>price</h5>
+                                </div>
+                                <div class="order-place">
+                                    <h5>involve</h5>
+                                </div>
+                                <div class="order-place">
+                                    <h5>payer</h5>
+                                </div>
+                            </div>
+                            <div class="col d-flex">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-sm-1">
+                </div>
+                <div class="col-lg-8 col-sm-10">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Order Input</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id='input-form'>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label">Order Name</label>
+                                    <input type="email" id="order-name-input" value='abc' class="form-control" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label">Price</label>
+                                    <input type="number" id="order-price-input" value=0 class="form-control" />
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label class="check-label" for="form1Example2">Order involves:</label>
+                                    <div class="col d-flex">
+                                        <label class='payer' for="part1"><input type="checkbox" id="part1" content="ZJH"> ZJH </label>
+                                        <label class='payer' for="part2"><input type="checkbox" id="part2" content="ZHX"> ZHX </label>
+                                        <label class='payer' for="part3"><input type="checkbox" id="part3" content="LZA"> LZA </label>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <label class="check-label" for="form1Example2">Payer:</label>
+                                    <div class="col d-flex">
+                                        <select name="payers" id="order-payer-input">
+                                            <option value="ZJH">ZJH</option>
+                                            <option value="ZHX">ZHX</option>
+                                            <option value="LZA">LZA</option>
+                                          </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <button type='button' class="btn-primary btn-block" onClick="submit()">input</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-1">
+                </div>
+            </div>
+
+           
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="copyright" style="margin-top: 0px;">
+                    Just a testing webpage
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+    <script>
+        function enter_entry(name, price, involve, payer) {
+            var order_history = document.getElementById("order-history");
+            var new_order = document.createElement("div")
+            order_history.appendChild(new_order);
+            new_order.setAttribute('class', 'col d-flex order-info')
+            
+            var new_name = document.createElement("div");
+            new_order.appendChild(new_name);
+            new_name.setAttribute('class', 'order-place')
+            new_name.innerHTML = name
+
+            var new_price = document.createElement("div");
+            new_order.appendChild(new_price);
+            new_price.setAttribute('class', 'order-place')
+            new_price.innerHTML = price
+
+            var new_involve = document.createElement("div");
+            new_order.appendChild(new_involve);
+            new_involve.setAttribute('class', 'order-place')
+            new_involve.innerHTML = involve.join(',')
+
+            var new_payer = document.createElement("div");
+            new_order.appendChild(new_payer);
+            new_payer.setAttribute('class', 'order-place')
+            new_payer.innerHTML = payer
+
+            var del_sign = document.createElement("button");
+            new_order.appendChild(del_sign);
+            del_sign.setAttribute('class', 'del-order')
+            del_sign.innerHTML = 'x'
+
+            var share = (price+0.0)/involve.length;
+            var balance1_var = 0;
+            var balance2_var = 0;
+            var balance3_var = 0;
+            // console.log(involve)
+            for (var j=0; j<involve.length;j++){
+                if (involve[j]==payer){
+                    continue
+                }
+                var combine = [involve[j], payer];
+                console.log(combine)
+                if ( combine.includes('ZJH') && combine.includes('ZHX') ){
+                    balance1_var = (payer=='ZJH') ? -share : share;
+                }   
+                else if ( combine.includes('ZHX') && combine.includes('LZA') ){
+                    balance2_var = (payer=='ZHX') ? -share : share;
+                }
+                else{
+                    balance3_var = (payer=='LZA') ? -share : share;
+                }
+            }
+            balance1 = balance1 + balance1_var;
+            balance2 = balance2 + balance2_var;
+            balance3 = balance3 + balance3_var;
+
+            del_sign.onclick = function (){
+                order_history.removeChild(new_order)
+                balance1 = balance1 - balance1_var;
+                balance2 = balance2 - balance2_var;
+                balance3 = balance3 - balance3_var;
+            }
+
+            document.getElementById("balance1").innerHTML = balance1.toFixed(3);
+            document.getElementById("balance2").innerHTML = balance2.toFixed(3);
+            document.getElementById("balance3").innerHTML = balance3.toFixed(3);
+
+            
+            document.getElementById("input-form").reset();
+        }
+
+        function check_data(checked, price){
+            if(!checked.length) {
+              alert("You must check at least one checkbox.");
+              return false;
+            }
+            if(! price>0) {
+              alert("Invalid price value");
+              return false;
+            }
+            return true
+        }
+
+        function submit() {
+            var checked = $("input[type=checkbox]:checked");
+
+            if(!checked.length) {
+              alert("You must check at least one checkbox.");
+              return false;
+            }
+
+            
+            var name = $('#order-name-input').val();
+            var price = $('#order-price-input').val();
+            price = parseFloat(price)
+            var involve = []
+            for(var i=0; i<checked.length; i++) {
+                involve.push(checked[i].getAttribute('content'))
+            }
+            var payer = $('#order-payer-input').val();
+
+            if (! check_data(checked, price)){
+                return false
+            }
+            
+            orders.push([name, price, involve, payer]);
+            enter_entry(name, price, involve, payer);
+        }
+        
+        function calculate() {}
+    </script>
+
+
+</body>
+
+</html>
