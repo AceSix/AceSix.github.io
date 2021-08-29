@@ -3,7 +3,7 @@
  * @Author: Ziang Liu
  * @Date: 2020-12-24 17:16:40
  * @LastEditors: AceSix
- * @LastEditTime: 2021-08-29 11:06:53
+ * @LastEditTime: 2021-08-29 11:13:14
  * @Copyright (C) 2020 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -81,16 +81,22 @@
         min-width: 100px;
         text-align: center;
     }
+
+    .balance {
+        justify-content:space-evenly;
+    }
     
     .balance div{
-        width: 20%;
-        margin : 0 6%;
+        width: 25%;
+        min-width: 130px;
+        text-align: center;
+        /* margin : 0 6%; */
     }
 
-    .balance h5{
-        width: 30%;
-        margin-right : 10%;
-        margin-left : 10%;
+    .balance div h5{
+        min-width: 130px;
+        /* margin-right : 10%;
+        margin-left : 10%; */
     }
 
     .del-order {
@@ -119,15 +125,15 @@
                         <div class="card-body">
                             <form id='input-form'>
                                 <div class="col d-flex balance">
-                                    <h5>ZJH to ZHX</h5>
+                                    <div><h5>ZJH to ZHX</h5></div>
                                     <div id='balance1'>0</div>
                                 </div>
                                 <div class="col d-flex balance">
-                                    <h5>ZHX to LZA</h5>
+                                    <div><h5>ZHX to LZA</h5></div>
                                     <div id='balance2'>0</div>
                                 </div>
                                 <div class="col d-flex balance">
-                                    <h5>LZA to ZJH</h5>
+                                    <div><h5>LZA to ZJH</h5></div>
                                     <div id='balance3'>0</div>
                                 </div>
                                 
@@ -184,7 +190,7 @@
                             <form id='input-form'>
                                 <div class="form-outline mb-4">
                                     <label class="form-label">Order Name</label>
-                                    <input type="email" id="order-name-input" value='abc' class="form-control" />
+                                    <input type="email" id="order-name-input" placeholder='transction name' class="form-control" />
                                 </div>
 
                                 <div class="form-outline mb-4">
