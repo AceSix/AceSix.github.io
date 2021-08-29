@@ -3,7 +3,7 @@
  * @Author: Ziang Liu
  * @Date: 2020-12-24 17:16:40
  * @LastEditors: AceSix
- * @LastEditTime: 2021-08-22 17:30:35
+ * @LastEditTime: 2021-08-29 11:06:53
  * @Copyright (C) 2020 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -64,10 +64,22 @@
     }
 
     .order-info {
-        justify-content:space-between;
+        justify-content:space-evenly;
+        flex-wrap: wrap;
+        margin: 1% 1% 1% 1% ;
+        padding-right: 5%;
     }
+
+    .orders{
+        background-color: black;
+        opacity: 0.7;
+        color: white;
+    }
+    
     .order-place {
-        margin: 0% 6%;
+        margin: 0% 1%;
+        min-width: 100px;
+        text-align: center;
     }
     
     .balance div{
@@ -150,8 +162,8 @@
                                 <div class="order-place">
                                     <h5>payer</h5>
                                 </div>
-                            </div>
-                            <div class="col d-flex">
+                                <!-- <div class="order-place">
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -183,9 +195,9 @@
                                 <div class="row mb-4">
                                     <label class="check-label" for="form1Example2">Order involves:</label>
                                     <div class="col d-flex">
-                                        <label class='payer' for="part1"><input type="checkbox" id="part1" content="ZJH"> ZJH </label>
-                                        <label class='payer' for="part2"><input type="checkbox" id="part2" content="ZHX"> ZHX </label>
-                                        <label class='payer' for="part3"><input type="checkbox" id="part3" content="LZA"> LZA </label>
+                                        <label class='payer' for="part1"><input type="checkbox" id="part1" content="ZJH" checked> ZJH </label>
+                                        <label class='payer' for="part2"><input type="checkbox" id="part2" content="ZHX" checked> ZHX </label>
+                                        <label class='payer' for="part3"><input type="checkbox" id="part3" content="LZA" checked> LZA </label>
                                     </div>
                                 </div>
 
@@ -229,7 +241,7 @@
             var order_history = document.getElementById("order-history");
             var new_order = document.createElement("div")
             order_history.appendChild(new_order);
-            new_order.setAttribute('class', 'col d-flex order-info')
+            new_order.setAttribute('class', 'col d-flex order-info orders')
             
             var new_name = document.createElement("div");
             new_order.appendChild(new_name);
@@ -238,18 +250,22 @@
 
             var new_price = document.createElement("div");
             new_order.appendChild(new_price);
-            new_price.setAttribute('class', 'order-place')
+            new_price.setAttribute('class', 'order-place ')
             new_price.innerHTML = price
 
             var new_involve = document.createElement("div");
             new_order.appendChild(new_involve);
-            new_involve.setAttribute('class', 'order-place')
+            new_involve.setAttribute('class', 'order-place ')
             new_involve.innerHTML = involve.join(',')
 
             var new_payer = document.createElement("div");
             new_order.appendChild(new_payer);
-            new_payer.setAttribute('class', 'order-place')
+            new_payer.setAttribute('class', 'order-place ')
             new_payer.innerHTML = payer
+
+            // var new_blank = document.createElement("div");
+            // new_order.appendChild(new_blank);
+            // new_blank.setAttribute('class', 'order-place')
 
             var del_sign = document.createElement("button");
             new_order.appendChild(del_sign);
