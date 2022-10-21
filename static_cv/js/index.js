@@ -2,8 +2,8 @@
  * @FilePath: \AceSix.github.io\static_cv\js\index.js
  * @Author: AceSix
  * @Date: 2021-06-30 16:52:27
- * @LastEditors: Ziang Liu
- * @LastEditTime: 2021-07-01 11:42:12
+ * @LastEditors: AceSix
+ * @LastEditTime: 2022-10-21 12:50:07
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 
@@ -63,19 +63,25 @@
                         (n.options.text = function(t) {
                             return t.cname;
                         }),
+                        (n.options.desc = function(t) {
+                            return t.cdesc;
+                        }),
                         n.updateText();
                 }),
-                i.on("touchstart mousedown", function() {
+            i.on("touchstart mousedown", function() {
                     i.addClass("active").removeClass("normal"),
                         e.removeClass("active").addClass("normal"),
                         (n.options.text = function(t) {
                             return t.name;
                         }),
+                        (n.options.desc = function(t) {
+                            return t.desc;
+                        }),
                         n.updateText();
                 }),
-                this.grids
+            this.grids
                 .on("hover-in-grid", function(e) {
-                    t.drawPanel(e), (t.isable = !1);
+                    t.drawPanel(e, this.options.desc), (t.isable = !1);
                 })
                 .on("hover-out-grid", function() {
                     (t.isable = !0), t.hidePanel();
@@ -91,7 +97,7 @@
                     500
                 ));
         }),
-        (n.prototype.drawPanel = function(t) {
+        (n.prototype.drawPanel = function(t, fn_desc) {
             var e = $(".panel-left").css("opacity", 1).empty(),
                 i = $(".panel-right").css("opacity", 1).empty();
             $(".tag-container").css("opacity", 0.3),
@@ -110,7 +116,7 @@
                 s[1] !== s[0] && (a += " / " + s[1]),
                     (o += this.drawLine(a));
             }
-            var c = t.desc || t.cdesc;
+            var c = fn_desc(t); 
             c && (o += "<span>" + c + "</div>"), i.html(o);
         }),
         (n.prototype.drawLine = function(t) {
@@ -154,6 +160,9 @@
             text: function(t) {
                 return t.text || t.value || t.name;
             },
+            desc: function(t) {
+                return t.desc || t.cdesc;
+            },
             highLightTag: "major",
             bgColorHover: "#0bf",
             bgColor: "#09f",
@@ -188,6 +197,7 @@
                 i,
                 n,
                 o = this.options.text,
+                d = this.options.desc,
                 r = this._data,
                 s = r.length,
                 a = this._grids;

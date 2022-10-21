@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2021-07-01 14:10:46
+ * @LastEditTime: 2022-10-21 13:00:15
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -15,6 +15,7 @@ my_experiences = [{
         tags: ["skill"],
         img: i + "coding.png",
         link: "",
+        desc: "Quite familiar with python, C++ and JavaScript. Also worked with C and Java.",
         cdesc: "熟悉python,C++,javascript，C和java也写过一点点",
     },
     {
@@ -25,7 +26,8 @@ my_experiences = [{
         tags: ["skill"],
         img: i + "",
         link: "",
-        cdesc: "TOEFL 107，GRE 323，而且我是不需要复习的^_^",
+        desc: "Working on it :)",
+        cdesc: "Working on it :)",
     },
     {
         id: "2017_10",
@@ -35,6 +37,7 @@ my_experiences = [{
         tags: ["life"],
         img: i + "cat.jpg",
         link: "",
+        desc: "How to pet a wild cat",
         cdesc: "How to pet a wild cat",
     },
     {
@@ -45,6 +48,8 @@ my_experiences = [{
         tags: ["research"],
         link: "",
         img: i + "lab_memo.jpg",
+        desc: "SLAM related researches in Nav&Sens Lab, SJTU. My work included the design of a \
+                SLAM testbed and exploring a federal Kalman filter algorithm in solely global frame.",
         cdesc: "开始学习SLAM、定位导航、系统控制",
     },
     {
@@ -55,6 +60,8 @@ my_experiences = [{
         tags: ["skill"],
         img: i + "",
         link: "",
+        desc: "My front-end programming starts from data visualization. I got most of my experience creating \
+                    UI interfaces in my undergrad dissertation advisor's team. ",
         cdesc: "PyQt, Vue, Electron都尝试过了，网络编程也还好",
     },
     {
@@ -65,6 +72,7 @@ my_experiences = [{
         tags: ["skill"],
         img: i + "model3d.jpg",
         link: "",
+        desc: "Quite helpful in testbed design at Nav&Sens Lab. But I didn't go too deep in this ares.",
         cdesc: "算是比较有用的技能吧，但是并没有做出更复杂的东西",
     },
     {
@@ -75,17 +83,42 @@ my_experiences = [{
         tags: ["life"],
         img: i + "",
         link: "",
+        desc: "Two time 2nd place in SJTU's team competition. Do it mostly for fun :)",
         cdesc: "随着学院拿了两届亚军，也是会打一点啦",
     },
     {
         id: "2019_3",
-        name: "blowing robot",
+        name: "flute blowing robot",
         cname: "吹笛机器人",
         time: ["2019-01", "2019-06"],
         tags: ["project"],
         img: i + "blower.jpg",
         link: "",
+        desc: "One interesting course project. We use one air pump for blowing and simulate fingertip with the combination of\
+            several common items. Too bad the air pump is louder than the flute >_<",
         cdesc: "系统设计的实践，遗憾的是忽略了气泵的噪音比笛子声音更大",
+    },
+    {
+        id: "2021_12",
+        name: "Godray under sea.",
+        cname: "深海模拟器",
+        time: ["2021-10", "2021-12"],
+        tags: ["project"],
+        img: i + ".jpg",
+        link: "",
+        desc: "A real-time rendering project with Qt and OpenGL. We implemented crespucular rays, wave simulation, HDR and shadows.",
+        cdesc: "使用Qt和OpenGL的实时渲染项目，包含体积光、水面模拟、HDR以及阴影。",
+    },
+    {
+        id: "2022_4",
+        name: "Fire~~~",
+        cname: "森林火灾模拟器",
+        time: ["2022-03", "2022-05"],
+        tags: ["project"],
+        img: i + ".jpg",
+        link: "",
+        desc: "We re-implement the paper Fire in Paradise and added a few interaction functions. This project is based on OpenGL, Qt and CUDA.",
+        cdesc: "我们重现了Fire in Paradise这篇文章中的内容，并添加了一些交互选项。",
     },
     {
         id: "2019_8",
@@ -95,6 +128,7 @@ my_experiences = [{
         tags: ["skill"],
         img: i + "",
         link: "",
+        desc: "Pas très bien...",
         cdesc: "差不多只会回答Oui/Non的水平吧...",
     },
     {
@@ -105,6 +139,8 @@ my_experiences = [{
         tags: ["research"],
         link: "",
         img: i + "image.png",
+        desc: "A lot of experiences in applying deep learning to low level tasks. I mainly explored the fields \
+            of image editing, super resolution and style transfer.",
         cdesc: "进入图像所，开始学习深度学习、图像生成",
     },
     {
@@ -115,17 +151,8 @@ my_experiences = [{
         tags: ["publication"],
         link: "https://ieeexplore.ieee.org/document/8702610",
         img: i + "testbed.png",
+        desc: "ISCAS2019, Design of a reconfigurable multi-sensor testbed for autonomous vehicles and ground robots",
         cdesc: "ISCAS2019, Design of a reconfigurable multi-sensor testbed for autonomous vehicles and ground robots",
-    },
-    {
-        id: "2020_2",
-        name: "Back-end",
-        cname: "后端开发",
-        time: ["2019-01", "now"],
-        tags: ["skill"],
-        img: i + "",
-        link: "",
-        cdesc: "入门级别的软件设计，能独立承担深度学习算法的研究，有idea但经常不work",
     },
     {
         id: "2020_5",
@@ -135,7 +162,19 @@ my_experiences = [{
         time: ["2019-11", "2020-5"],
         img: i + "Coogan.png",
         link: "http://hotu.co/blog/color/2_color_palette.html",
+        desc: "ECCV2020, CooGAN: A Memory-Efficient Framework for High-Resolution Facial Attribute Editing",
         cdesc: "ECCV2020, CooGAN: A Memory-Efficient Framework for High-Resolution Facial Attribute Editing",
+    },
+    {
+        id: "2021_5",
+        name: "FOTAST",
+        cname: "FOTAST",
+        time: ["2021-3", "2021-6"],
+        tags: ["publication"],
+        img: i + "fost.png",
+        link: "https://link.springer.com/chapter/10.1007/978-3-030-67832-6_4",
+        desc: "MMM2021, Fast Optimal Transport Artistic Style Transfer",
+        cdesc: "MMM2021, Fast Optimal Transport Artistic Style Transfer",
     },
     {
         id: "2020_6",
@@ -145,6 +184,7 @@ my_experiences = [{
         tags: ['degree'],
         link: "",
         img: i + "sjtu.jpg",
+        desc: "B.S. in mechanical engineering and french literature.",
         cdesc: "机械工程试点班，工学学士；法语语言学，文学学士",
     },
     {
@@ -155,26 +195,18 @@ my_experiences = [{
         tags: ["life"],
         img: i + "coffee.png",
         link: "",
+        desc: "I've really grown to like coffee. Wish I could visit all interesting cafes in the world.",
         cdesc: "开始尝试世上各种咖啡",
-    },
-    {
-        id: "2021_5",
-        name: "FOTAST",
-        cname: "FOTAST",
-        time: ["2021-3", "2021-6"],
-        tags: ["publication"],
-        img: i + "fost.png",
-        link: "https://link.springer.com/chapter/10.1007/978-3-030-67832-6_4",
-        cdesc: "MMM2021, Fast Optimal Transport Artistic Style Transfer",
     },
     {
         id: "2021_7",
         name: "Brown",
         cname: "布朗",
-        time: ["2021-7", "?"],
+        time: ["2021-7", "now"],
         tags: ["degree"],
-        img: i + "",
+        img: i + "brown.jpg",
         link: "",
-        cdesc: "Gap一年了，快让我过去吧...",
+        desc: "Currently enrolled in SCM program at Brown University.",
+        cdesc: "Pvd很偏远，但也挺好",
     },
 ];
