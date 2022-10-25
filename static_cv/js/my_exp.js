@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2022-10-21 13:03:02
+ * @LastEditTime: 2022-10-24 22:20:29
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -117,7 +117,7 @@ my_experiences = [{
         tags: ["project"],
         img: i + ".jpg",
         link: "",
-        desc: "We re-implement the paper Fire in Paradise and added a few interaction functions. This project is based on OpenGL, Qt and CUDA. \
+        desc: "We re-implemented the paper Fire in Paradise and added a few interaction functions. This project is based on OpenGL, Qt and CUDA. \
             The project can be found in https://github.com/herewegoblueno/team-wildfire.",
         cdesc: "我们重现了Fire in Paradise这篇文章中的内容，并添加了一些交互选项。",
     },
