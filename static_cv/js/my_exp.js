@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2022-10-24 22:20:29
+ * @LastEditTime: 2022-10-24 23:49:19
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -162,9 +162,20 @@ my_experiences = [{
         tags: ["publication"],
         time: ["2019-11", "2020-5"],
         img: i + "Coogan.png",
-        link: "http://hotu.co/blog/color/2_color_palette.html",
+        link: "https://arxiv.org/abs/2011.01563",
         desc: "ECCV2020, CooGAN: A Memory-Efficient Framework for High-Resolution Facial Attribute Editing",
         cdesc: "ECCV2020, CooGAN: A Memory-Efficient Framework for High-Resolution Facial Attribute Editing",
+    },
+    {
+        id: "2022_10",
+        name: "SPDNet",
+        cname: "SPDNet",
+        tags: ["publication"],
+        time: ["2019-11", "2020-5"],
+        img: i + "spdnet.png",
+        link: "",
+        desc: "Accepted by NeulIPS2022, SPDNet: A Large-Scale Imagery Dataset and Benchmark for Spatial Precipitation Downscaling",
+        cdesc: "Accepted by NeulIPS2022, SPDNet: A Large-Scale Imagery Dataset and Benchmark for Spatial Precipitation Downscalingg",
     },
     {
         id: "2021_5",

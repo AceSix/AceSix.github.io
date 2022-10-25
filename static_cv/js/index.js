@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:52:27
  * @LastEditors: AceSix
- * @LastEditTime: 2022-10-21 12:50:07
+ * @LastEditTime: 2022-10-24 23:40:11
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 
@@ -18,7 +18,8 @@
     }
     var i = {};
     return (e.m = t), (e.c = i), (e.p = "./"), e(0);
-})([
+})
+([
     function(t, e, i) {
         "use strict";
 
@@ -127,12 +128,10 @@
     },
     function(t, e) {
         "use strict";
-
-        t.exports = my_experiences
+        t.exports = my_experiences;
     },
     function(t, e, i) {
         "use strict";
-
         function n(t, e) {
             (e = this.options = p.deepMerge(n.options, e)),
             (this.container = t.addClass("grid-container")),
@@ -154,7 +153,7 @@
             p = i(5),
             d = i(4);
         (n.options = {
-            hPercent: 0.34,
+            hPercent: 0.12,
             wN: 20,
             hN: 5,
             text: function(t) {
@@ -317,7 +316,7 @@
                 (u = 2 * r() * c),
                 (l = 2 * r() * c),
                 (e = 4 * r() * v),
-                (i = 4 * r() * v),
+                (i = 6 * r() * v),
                 (n = 4 * r() * v);
                 var L =
                     "translateX(" +
@@ -766,7 +765,7 @@
             return "function" == typeof t ? t(e, i, n, o) : t;
         }
         var u = this,
-            l = 4;
+            l = 2;
         t.exports = {
             merge: o,
             isNone: n,
