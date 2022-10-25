@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:52:27
  * @LastEditors: AceSix
- * @LastEditTime: 2022-10-24 23:40:11
+ * @LastEditTime: 2022-10-24 23:50:48
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 
@@ -316,7 +316,7 @@
                 (u = 2 * r() * c),
                 (l = 2 * r() * c),
                 (e = 4 * r() * v),
-                (i = 6 * r() * v),
+                (i = 4 * r() * v),
                 (n = 4 * r() * v);
                 var L =
                     "translateX(" +
