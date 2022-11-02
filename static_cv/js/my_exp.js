@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2022-10-24 23:49:19
+ * @LastEditTime: 2022-11-02 17:58:50
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -104,7 +104,7 @@ my_experiences = [{
         cname: "深海模拟器",
         time: ["2021-10", "2021-12"],
         tags: ["project"],
-        img: i + ".jpg",
+        img: i + "undersea.png",
         link: "",
         desc: "A real-time rendering project with Qt and OpenGL. We implemented crespucular rays, wave simulation, HDR and shadows.",
         cdesc: "使用Qt和OpenGL的实时渲染项目，包含体积光、水面模拟、HDR以及阴影。",
@@ -115,7 +115,7 @@ my_experiences = [{
         cname: "森林火灾模拟器",
         time: ["2022-03", "2022-05"],
         tags: ["project"],
-        img: i + ".jpg",
+        img: i + "fire.png",
         link: "",
         desc: "We re-implemented the paper Fire in Paradise and added a few interaction functions. This project is based on OpenGL, Qt and CUDA. \
             The project can be found in https://github.com/herewegoblueno/team-wildfire.",
