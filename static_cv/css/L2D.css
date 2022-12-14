@@ -25,7 +25,7 @@
     border-radius: 20px;
 }
 
-#live2d-widget {
+.live2d-widget-container {
     background-color: #1e00df;
     display: none;
 }
