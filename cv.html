@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:48:33
  * @LastEditors: AceSix
- * @LastEditTime: 2022-12-13 22:34:20
+ * @LastEditTime: 2022-12-13 22:40:47
  * Copyright (C) 2021 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -84,20 +84,27 @@
                         enable: true
                     }
                 });
-            }
-
-            if (document.getElementById("live2d-widget").style.display != "block")
-            {
                 document.getElementById("live2d-widget").style.display = "block";
                 var t = document.getElementsByClassName("L2Dswitch")[0];
                 t.classList.add("L2Dswitch-focus");
-                // L2Dswitch-focus
             }
             else {
-                document.getElementById("live2d-widget").style.display = "none";
-                var t = document.getElementsByClassName("L2Dswitch")[0];
-                t.classList.remove("L2Dswitch-focus");
+                if (document.getElementById("live2d-widget").style.display != "block")
+                {
+                    document.getElementById("live2d-widget").style.display = "block";
+                    var t = document.getElementsByClassName("L2Dswitch")[0];
+                    t.classList.add("L2Dswitch-focus");
+                    // L2Dswitch-focus
+                }
+                else {
+                    document.getElementById("live2d-widget").style.display = "none";
+                    var t = document.getElementsByClassName("L2Dswitch")[0];
+                    t.classList.remove("L2Dswitch-focus");
+                }
+
             }
+
+            
         }
     </script>
 </body>
