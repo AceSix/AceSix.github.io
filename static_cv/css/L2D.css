@@ -25,3 +25,8 @@
     border-radius: 20px;
 }
 
+#live2d-widget {
+    /* background-color: #1e00df; */
+    display: none;
+}
+
