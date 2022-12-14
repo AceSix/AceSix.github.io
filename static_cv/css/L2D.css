@@ -1,0 +1,26 @@
+
+.L2Dswitch {
+    background-color: #5ec5e4;
+    /* display: inline-block; */
+    color: white;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 20px; 
+    position: absolute;
+    bottom: 4%;
+    text-align: center;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    cursor: pointer;
+    pointer-events: auto;
+    /* align-items: center; */
+}
+
+.L2Dswitch:hover {
+    background-color: #1e00df;
+}
+
+.L2Dswitch-focus {
+    background-color: #1e00df;
+    border-radius: 20px;
+}
