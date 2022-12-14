@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:48:33
  * @LastEditors: AceSix
- * @LastEditTime: 2022-12-13 22:09:27
+ * @LastEditTime: 2022-12-13 22:34:20
  * Copyright (C) 2021 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -54,33 +54,38 @@
     <!-- <script src="./../cube.min.js"></script> -->
 
     <script type="text/javascript">
-        L2Dwidget
-            .on('*', (name) => {
-                console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
-            })
-            .init({
-                model: {
-                    jsonPath: "static/l2d/Suzukaze/model.json",
-                    // jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
-                    scale: 1
-                },
-                dialog: {
-                    // 开启对话框
-                    enable: true,
-                    script: {
-                        'tap body': 'The contents thicken every day.',
-                        'tap face': 'Please send any advice to ziang_liu@brown.edu!'
-                    }
-                },
-                react: {
-                    opacity: 0.5,
-                },
-                mobile: {
-                    enable: true
-                }
-            });
+        
 
         function toggleL2D() {
+            L2dwidgets = document.getElementsByClassName("live2d-widget-container");
+            if (L2dwidgets.length < 1){
+                L2Dwidget
+                .on('*', (name) => {
+                    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
+                })
+                .init({
+                    model: {
+                        jsonPath: "static/l2d/Suzukaze/model.json",
+                        // jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
+                        scale: 1
+                    },
+                    dialog: {
+                        // 开启对话框
+                        enable: true,
+                        script: {
+                            'tap body': 'The contents thicken every day.',
+                            'tap face': 'Please send any advice to ziang_liu@brown.edu!'
+                        }
+                    },
+                    react: {
+                        opacity: 0.5,
+                    },
+                    mobile: {
+                        enable: true
+                    }
+                });
+            }
+
             if (document.getElementById("live2d-widget").style.display != "block")
             {
                 document.getElementById("live2d-widget").style.display = "block";
