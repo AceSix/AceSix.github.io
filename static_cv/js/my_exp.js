@@ -221,4 +221,15 @@ my_experiences = [{
         desc: "Currently enrolled in SCM program at Brown University.",
         cdesc: "Pvd很偏远，但也挺好",
     },
+    {
+        id: "2022_7",
+        name: "Guitar",
+        cname: "吉他",
+        time: ["2022-7", "now"],
+        tags: ["life"],
+        img: i + "guitar.jpg",
+        link: "",
+        desc: "Trying to be a fingerstyle guitarist.",
+        cdesc: "我爱指弹",
+    },
 ];

@@ -29,3 +29,23 @@
     display: none;
 } */
 
+
+.music_player {
+    background-color: #24ec88;
+    /* display: inline-block; */
+    color: white;
+    border-radius: 10px;
+    padding: 1px 2px;
+    font-size: 20px; 
+    position: absolute;
+    bottom: 2%;
+    left: 35%;
+    width:30%;
+    height:20px;
+    text-align: center;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    cursor: pointer;
+    pointer-events: auto;
+}
+

@@ -14,6 +14,7 @@
     overflow: hidden;
 }
 
+
 #ui-container {
     pointer-events: none;
     text-align: left;
@@ -40,13 +41,14 @@
     cursor: pointer;
 }
 
+#switch .normal {
+    color: #999;
+}
+
 #switch .active {
     color: #09f;
 }
 
-#switch .normal {
-    color: #999;
-}
 
 #switch .en {
     transition: 0.5s;
