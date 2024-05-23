@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+   body {
+      display:grid;
+      place-content:center;
+      min-height:800px;
+    }
+    
+   svg {
+      width:1600px;
+      height:800px;
+      cursor:move;
+   }
+   
+   #world_map {
+      pointer-events:none;
+      z-index: 10;
+      opacity: 0.5;
+   }
+   
+   #measure {
+      pointer-events:none;
+      z-index: 20;
+      opacity: 0.7;
+   }
+
+
+   #imageSelect {
+      margin: 0;
+      bottom:5%;
+      place-content:center;
+      overflow: auto;
+      width: 352px;
+      max-height: 80px;
+
+      padding: 10px;
+      border: 1px solid rgb(0, 255, 225)f8c;
+      border-radius: 5px;
+      background-color: #08ff8c;
+      font-size: 16px;
+      cursor: pointer;
+
+      /*background-color: white;*/
+   }
+
+   #imageSelect:focus {
+     outline: none;
+     border-color: #007bff;
+     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+   }
+
+</style>
+
+<body>
+   <svg id="svg" preserveAspectRatio="none">
+      <image id="world_map" href="static/data/world.png" preserveAspectRatio="none"></image>
+      <image id="measure" ></image>
+   </svg>
+
+   <label for="imageSelect">Choose the measure to overlay:</label>
+   <select id="imageSelect" onchange="changeImage()">
+      <option value="static/data/ThreeY_entropy_rh.png">ThreeY_entropy_rh</option>
+      <option value="static/data/ThreeY_rh98_mean.png">ThreeY_rh98_mean</option>
+      <option value="static/data/ThreeY_rh98_std.png">ThreeY_rh98_std</option>
+      <option value="static/data/ThreeY_gradient.png">ThreeY_gradient</option>
+      <option value="static/data/ThreeY_gradient_256.png">ThreeY_gradient_256</option>
+      <option value="static/data/ThreeY_avg_code_dis.png">ThreeY_avg_code_dis</option>
+      <option value="static/data/ThreeY_avg_code_dis_256.png">ThreeY_avg_code_dis_256</option>
+      <option value="static/data/ThreeY_sample_count.png">ThreeY_sample_count</option>
+   </select>
+
+<script>
+   function changeImage() {
+      const image2 = document.getElementById('measure');
+      const selectedImage = document.getElementById('imageSelect').value;
+      image2.setAttribute('href', selectedImage);
+      updateImage();
+   }
+
+   let imgsrc = "static/data/ThreeY_entropy_rh.png";
+   let imgRawWidth = 1600; // hardcode
+   let imgRawHeight = 800; // hardcode (img dims should >= viewBox dims)
+   
+   let zoom = 1; // apply scale({zoom}) on <image>
+   let viewBoxWidth = 1600; // (in case {zoom} is fixed, larger this value to zoom-out)
+   let viewBoxHeight = 800; // (viewbox dim *ratio* should be equal to svg css width/height)
+   let viewCenterX = 1900; // focal
+   let viewCenterY = 2100;
+   let zoomMin = imgRawWidth < imgRawHeight ? viewBoxWidth/imgRawWidth : viewBoxHeight/imgRawHeight; // force <image> to be "cover"
+   let zoomMax = 8.0;
+   let zoomStep = 0.3; // per each mousewheel
+   
+   let mouseX = -1; // internal
+   let mouseY = -1; // internal
+   
+   // init
+   
+   const background = document.getElementById("world_map");
+   background.setAttribute('width', imgRawWidth);
+   background.setAttribute('height', imgRawHeight);
+
+   const measure_img = document.getElementById("measure");
+   measure_img.setAttribute('width', imgRawWidth);
+   measure_img.setAttribute('height', imgRawHeight);
+   measure_img.setAttribute('href', imgsrc);
+   svg.setAttribute('viewBox', `0 0 ${viewBoxWidth} ${viewBoxHeight}`);
+   updateViewCenter(0,0);
+   updateImage();
+   
+   // events
+
+   svg.onwheel = e => {
+     zoom += zoomStep * -Math.sign(e.deltaY);
+     zoom = clamp(zoomMin, zoomMax, zoom);
+     //updateViewCenterByMouseWheel(e);
+     //image.style.transition = `none`;
+     updateImage();
+     e.preventDefault();
+   };
+   
+   svg.onmousedown = e => {
+     mouseX = e.clientX;
+     mouseY = e.clientY;
+   };
+   
+   document.body.addEventListener('mousemove', e => {
+     if (mouseX > -1) {
+       const dx = -(e.clientX - mouseX) / zoom;
+       const dy = -(e.clientY - mouseY) / zoom;
+       updateViewCenter(dx, dy);
+       //image.style.transition = `none`;
+       updateImage();
+       mouseX = e.clientX;
+       mouseY = e.clientY;
+     }
+   });
+   
+   document.body.addEventListener('mouseup', e => {
+     mouseX = -1;
+     mouseY = -1;
+   });
+                         
+   // fns
+   
+   function updateViewCenter(dx, dy) {
+     viewCenterX += dx;
+     viewCenterY += dy;
+     viewCenterX = clamp(viewBoxWidth/2/zoom, imgRawWidth - viewBoxWidth/2/zoom, viewCenterX);
+     viewCenterY = clamp(viewBoxHeight/2/zoom, imgRawHeight - viewBoxHeight/2/zoom, viewCenterY);
+   }
+   
+   function updateViewCenterByMouseWheel(e) {
+     const { left:svgLeft, top:svgTop } = svg.getBoundingClientRect();
+     const dx = e.clientX - svgLeft - viewBoxWidth/2;
+     const dy = e.clientY - svgTop - viewBoxHeight/2;
+     updateViewCenter(dx, dy);
+   }
+   
+   function updateImage() {
+      background.style.transformOrigin = `${viewCenterX}px ${viewCenterY}px`;
+      background.style.transform = `
+         translate(${-viewCenterX+viewBoxWidth/2}px,
+         ${-viewCenterY+viewBoxHeight/2}px
+         )scale(${zoom})
+      ` ;
+
+      measure_img.style.transformOrigin = `${viewCenterX}px ${viewCenterY}px`;
+      measure_img.style.transform = `
+         translate(${-viewCenterX+viewBoxWidth/2}px,
+         ${-viewCenterY+viewBoxHeight/2}px
+         )scale(${zoom})
+      ` ;
+
+   }
+   
+   // helpers 
+   
+   function clamp(a, b, x) {
+     return Math.min(b, Math.max(a, x));
+   }
+</script>
+</body>
+</html>
