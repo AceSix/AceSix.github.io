@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2022-11-02 17:58:50
+ * @LastEditTime: 2024-09-27 22:54:08
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -40,30 +40,30 @@ my_experiences = [{
         desc: "How to pet a wild cat",
         cdesc: "How to pet a wild cat",
     },
-    {
-        id: "2018_9",
-        name: "Nav&Sens Lab",
-        cname: "感知导航实验室实习",
-        time: ["2018-6", "2019-8"],
-        tags: ["research"],
-        link: "",
-        img: i + "lab_memo.jpg",
-        desc: "SLAM related researches in Nav&Sens Lab, SJTU. My work included the design of a \
-                SLAM testbed and exploring a federal Kalman filter algorithm in solely global frame.",
-        cdesc: "开始学习SLAM、定位导航、系统控制",
-    },
-    {
-        id: "2018_11",
-        name: "Front-end",
-        cname: "前端开发",
-        time: ["2018-04", "now"],
-        tags: ["skill"],
-        img: i + "",
-        link: "",
-        desc: "My front-end programming starts from data visualization. I got most of my experience creating \
-                    UI interfaces in my undergrad dissertation advisor's team. ",
-        cdesc: "PyQt, Vue, Electron都尝试过了，网络编程也还好",
-    },
+    // {
+    //     id: "2018_9",
+    //     name: "Nav&Sens Lab",
+    //     cname: "感知导航实验室实习",
+    //     time: ["2018-6", "2019-8"],
+    //     tags: ["research"],
+    //     link: "",
+    //     img: i + "lab_memo.jpg",
+    //     desc: "SLAM related researches in Nav&Sens Lab, SJTU. My work included the design of a \
+    //             SLAM testbed and exploring a federal Kalman filter algorithm in solely global frame.",
+    //     cdesc: "开始学习SLAM、定位导航、系统控制",
+    // },
+    // {
+    //     id: "2018_11",
+    //     name: "Front-end",
+    //     cname: "前端开发",
+    //     time: ["2018-04", "now"],
+    //     tags: ["skill"],
+    //     img: i + "",
+    //     link: "",
+    //     desc: "My front-end programming starts from data visualization. I got most of my experience creating \
+    //                 UI interfaces in my undergrad dissertation advisor's team. ",
+    //     cdesc: "PyQt, Vue, Electron都尝试过了，网络编程也还好",
+    // },
     {
         id: "2019_1",
         name: "3D modeling",
@@ -133,20 +133,8 @@ my_experiences = [{
         cdesc: "差不多只会回答Oui/Non的水平吧...",
     },
     {
-        id: "2019_9",
-        name: "CV Lab",
-        cname: "图像所实习",
-        time: ["2019-9", "now"],
-        tags: ["research"],
-        link: "",
-        img: i + "image.png",
-        desc: "A lot of experiences in applying deep learning to low level tasks. I mainly explored the fields \
-            of image editing, super resolution and style transfer.",
-        cdesc: "进入图像所，开始学习深度学习、图像生成",
-    },
-    {
         id: "2019_11",
-        name: "Testbed Paper",
+        name: "Navigation Testbed",
         cname: "传感器平台发表",
         time: ["2019-8", "2019-12"],
         tags: ["publication"],
