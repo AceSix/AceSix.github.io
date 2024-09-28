@@ -4,7 +4,7 @@
 ###   @Author: AceSix
 ###   @Date: 2024-05-23 14:23:46
 ###   @LastEditors: AceSix
-###   @LastEditTime: 2024-05-23 14:32:02
+###   @LastEditTime: 2024-09-27 22:33:43
 ###   @Copyright (C) 2024 Brown U. All rights reserved.
 ###################################################################
 # Importing flask module in the project is mandatory
@@ -20,7 +20,7 @@ app = Flask(__name__)
 # the associated function.
 @app.route('/')
 def index():
-    return render_template('eco_maps.html')
+    return render_template('cv.html')
 
 # main driver function
 if __name__ == '__main__':

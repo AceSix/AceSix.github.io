@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:48:33
  * @LastEditors: AceSix
- * @LastEditTime: 2024-09-27 20:52:14
+ * @LastEditTime: 2024-09-27 22:31:59
  * Copyright (C) 2021 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -40,9 +40,18 @@
         <div class="tag-container"></div>
         <div class="acknowlegement">Thank ZhouNingyi for creating this template</div>
         <div class="L2Dswitch" onclick="toggleL2D()"> L2D </div>
-        <audio controls class="music_player">
-            <source src="./static_cv/music/陽20240421.m4a" />
+
+        <div>
+        <select id="music_list" onchange="playSong()">
+            <option value="">Select a song</option>
+            <option value="./static_cv/music/陽20240927.m4a">陽</option>
+            <option value="./static_cv/music/无题20240927.m4a">无题</option>
+            <option value="./static_cv/music/空の箱20240927.m4a">空の箱</option>
+        </select>
+        
+        <audio controls  id="music_player">
         </audio>
+        </div>
         <!-- <input type="checkbox" id="L2Dswitch" /><label id="L2D-label" for="L2Dswitch">L2D</label> -->
         
     </div>
@@ -55,9 +64,17 @@
         document.write('<script language="javascript" type="text/javascript" src="./static_cv/js/index.js?ver=' + number + '"></scr' + 'ipt>');
     </script>
     <!-- <script src="./../cube.min.js"></script> -->
-
     <script type="text/javascript">
         
+        function playSong() {
+            var song = document.getElementById("songList").value;
+            var audioPlayer = document.getElementById("audioPlayer");
+
+            if (song) {
+                audioPlayer.src = song;
+                audioPlayer.play();
+            }
+        }
 
         function toggleL2D() {
             L2dwidgets = document.getElementsByClassName("live2d-widget-container");

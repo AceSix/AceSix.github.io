@@ -30,9 +30,10 @@
 } */
 
 
-.music_player {
+#music_player {
     background-color: #24ec88;
     /* display: inline-block; */
+    display: block;
     color: white;
     border-radius: 10px;
     padding: 1px 2px;
@@ -42,6 +43,26 @@
     left: 35%;
     width:30%;
     height:20px;
+    text-align: center;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#music_list {
+    background-color: hsl(150, 68%, 68%);
+    /* display: inline-block; */
+    display: block;
+    color: rgb(0, 8, 255);
+    border-radius: 10px;
+    padding: 1px 2px;
+    font-size: 16px; 
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    width:180px;
+    height:30px;
     text-align: center;
     transition: 0.5s;
     -webkit-transition: 0.5s;
