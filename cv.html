@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:48:33
  * @LastEditors: AceSix
- * @LastEditTime: 2024-09-27 23:07:01
+ * @LastEditTime: 2024-09-27 23:26:39
  * Copyright (C) 2021 SJTU. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -79,6 +79,7 @@
         function toggleL2D() {
             L2dwidgets = document.getElementsByClassName("live2d-widget-container");
             if (L2dwidgets.length < 1){
+                
                 L2Dwidget
                 .on('*', (name) => {
                     console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
@@ -108,21 +109,21 @@
                 var t = document.getElementsByClassName("L2Dswitch")[0];
                 t.classList.add("L2Dswitch-focus");
             }
-            else {
-                if (document.getElementById("live2d-widget").style.display != "block")
-                {
-                    document.getElementById("live2d-widget").style.display = "block";
-                    var t = document.getElementsByClassName("L2Dswitch")[0];
-                    t.classList.add("L2Dswitch-focus");
-                    // L2Dswitch-focus
-                }
-                else {
-                    document.getElementById("live2d-widget").style.display = "none";
-                    var t = document.getElementsByClassName("L2Dswitch")[0];
-                    t.classList.remove("L2Dswitch-focus");
-                }
 
+            if (document.getElementById("live2d-widget").style.display != "block")
+            {
+                document.getElementById("live2d-widget").style.display = "block";
+                var t = document.getElementsByClassName("L2Dswitch")[0];
+                t.classList.add("L2Dswitch-focus");
+                // L2Dswitch-focus
             }
+            else {
+                document.getElementById("live2d-widget").style.display = "none";
+                var t = document.getElementsByClassName("L2Dswitch")[0];
+                t.classList.remove("L2Dswitch-focus");
+            }
+
+            
 
             
         }
