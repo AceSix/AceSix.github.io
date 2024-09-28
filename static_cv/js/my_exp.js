@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2021-06-30 16:53:31
  * @LastEditors: AceSix
- * @LastEditTime: 2024-09-27 22:54:08
+ * @LastEditTime: 2024-09-27 22:55:43
  * Copyright (C) 2021 SJTU. All rights reserved.
  */
 var i = "./static_cv/img/";
@@ -178,8 +178,8 @@ my_experiences = [{
     },
     {
         id: "2020_6",
-        name: "Graduation from SJTU",
-        cname: "上海交大，毕业",
+        name: "SJTU",
+        cname: "上海交大",
         time: ["2016-8", "2020-06"],
         tags: ['degree'],
         link: "",
@@ -206,7 +206,7 @@ my_experiences = [{
         tags: ["degree"],
         img: i + "brown.jpg",
         link: "",
-        desc: "Currently enrolled in SCM program at Brown University.",
+        desc: "Currently enrolled in CS PhD program at Brown University.",
         cdesc: "Pvd很偏远，但也挺好",
     },
     {
