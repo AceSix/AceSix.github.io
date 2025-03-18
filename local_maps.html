@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2025-03-18 11:27:08
  * @LastEditors: AceSix
- * @LastEditTime: 2025-03-18 11:33:39
+ * @LastEditTime: 2025-03-18 11:37:08
  * Copyright (C) 2025 Brown U. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -172,9 +172,6 @@
    
    // init
    
-   const background = document.getElementById("world_map");
-   background.setAttribute('width', imgRawWidth);
-   background.setAttribute('height', imgRawHeight);
 
    const measure_img = document.getElementById("measure1");
    measure_img.setAttribute('width', imgRawWidth);
@@ -239,12 +236,6 @@
    }
    
    function updateImage() {
-      background.style.transformOrigin = `${viewCenterX}px ${viewCenterY}px`;
-      background.style.transform = `
-         translate(${-viewCenterX+viewBoxWidth/2}px,
-         ${-viewCenterY+viewBoxHeight/2}px
-         )scale(${zoom})
-      ` ;
 
       measure_img.style.transformOrigin = `${viewCenterX}px ${viewCenterY}px`;
       measure_img.style.transform = `
