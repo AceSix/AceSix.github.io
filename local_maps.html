@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2025-03-18 11:27:08
  * @LastEditors: AceSix
- * @LastEditTime: 2025-03-18 12:08:08
+ * @LastEditTime: 2025-03-19 12:37:23
  * Copyright (C) 2025 Brown U. All rights reserved.
 -->
 <!DOCTYPE html>
@@ -105,6 +105,9 @@
       <select id="imageSelect">
          <option value="static/data/TandemX_bincolor.png">TandemX_bincolor</option>
          <option value="static/data/TandemX_density.png">TandemX_density</option>
+         <option value="static/data/TandemX_Opacity.png">TandemX_WassersteinOpacity</option>
+         <option value="static/data/TandemX_OpacityRH98Ratio.png">TandemX_WO_by_RH98</option>
+         <option value="static/data/TandemX_RH98.png">TandemX_RH98</option>
          <option value="static/data/Landsat2018_cmp.png">Landsat2018_metabin</option>
          <option value="static/data/Landsat2019_cmp.png">Landsat2019_metabin</option>
          <option value="static/data/Landsat2020_cmp.png">Landsat2020_metabin</option>
@@ -161,8 +164,8 @@
    let zoom = 1; // apply scale({zoom}) on <image>
    let viewBoxWidth = 800; // (in case {zoom} is fixed, larger this value to zoom-out)
    let viewBoxHeight = 800; // (viewbox dim *ratio* should be equal to svg css width/height)
-   let viewCenterX = 1900; // focal
-   let viewCenterY = 2100;
+   let viewCenterX = 800; // focal
+   let viewCenterY = 800;
    let zoomMin = imgRawWidth < imgRawHeight ? viewBoxWidth/imgRawWidth : viewBoxHeight/imgRawHeight; // force <image> to be "cover"
    let zoomMax = 8.0;
    let zoomStep = 0.3; // per each mousewheel
