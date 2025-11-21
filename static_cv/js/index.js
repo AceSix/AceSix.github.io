@@ -3,7 +3,7 @@
  * @Author: AceSix
  * @Date: 2023-12-13 11:56:03
  * @LastEditors: AceSix
- * @LastEditTime: 2025-11-21 17:27:19
+ * @LastEditTime: 2025-11-21 17:28:58
  * Copyright (C) 2025 Brown U. All rights reserved.
  */
 const cube = document.getElementById("cube");
@@ -47,7 +47,7 @@ function draw()
     //translucent BG to show trail
     ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
     ctx.fillRect(0, 0, c.width, c.height);
-    ctx.fillStyle = "rgba(0, 197, 204, 1)"; //green text
+    ctx.fillStyle = "rgba(6, 164, 140, 0.5)"; //green text
     ctx.font = font_size + "px arial";
     //looping over drops
     for(var i = 0; i < drops.length; i++)
