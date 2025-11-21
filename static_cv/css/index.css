@@ -254,8 +254,14 @@ button:hover {
   margin-top: 10px;
   margin-bottom: 40px;
 }
+
+.social-media-btns a {
+  width: auto;
+  margin: 0 0;
+}
+
 .social-media-btns>i {
-  font-size: 2rem;
+  font-size: 50px;
   margin: 5px 10px;
 }
 .social-media-btns>i:hover {
