@@ -1,137 +1,212 @@
-<!--
- * @FilePath: \AceSix.github.io\cv.html
- * @Author: AceSix
- * @Date: 2021-06-30 16:48:33
- * @LastEditors: AceSix
- * @LastEditTime: 2024-09-29 00:11:08
- * Copyright (C) 2021 SJTU. All rights reserved.
--->
 <!DOCTYPE html>
+<html lang="en">
 
+  <head>
+    <meta charset="UTF-8">
+    <title>Cube CV</title>
+    <link rel="stylesheet" href="./static_cv/css/index.css">
+
+  </head>
+    
+  <body>
+  <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title id="title">CV.LiuZiAng</title>
-    <!-- <link rel="stylesheet" href="./static_cv/css/grids.css">
-    <link rel="stylesheet" href="./static_cv/css/index.css"> -->
-    <script src="./static_cv/lib/zepto/zepto.min.js"></script>
-    <script src="./static/js/L2Dwidget.min.js"></script>
-    <script type="text/javascript">
-        var now = new Date();
-        var number = now.getYear().toString() + now.getMonth().toString() + now.getDate().toString() +
-            now.getHours().toString() + now.getMinutes().toString() + now.getSeconds().toString();
-        document.write(' <link rel="stylesheet" href="./static_cv/css/grids.css?ver=' + number + '" type="text/css">');
-        document.write(' <link rel="stylesheet" href="./static_cv/css/L2D.css?ver=' + number + '" type="text/css">');
-        document.write(' <link rel="stylesheet" href="./static_cv/css/index.css?ver=' + number + '" type="text/css">');
-        // document.write('<script language="javascript" type="text/javascript" src="./static_cv/js/my_exp.js?ver=' + number + '"></scr' + 'ipt>');
-    </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
-
 <body>
-    <div id="grid-container" class="container" style="z-index:0;"></div>
-    <div id="ui-container" class="container" style="z-index:1;">
-        <div id="title">Liu Zi'Ang.<span>work</span></div>
-        <div id="switch">
-            <div class="en active">EN</div>
-            <div class="cn normal">中文</div>
-        </div>
-        <div class="panel-left"></div>
-        <div class="panel-right"></div>
-        <div class="tag-container"></div>
-        <div class="acknowlegement">Thank ZhouNingyi for creating this template</div>
-        <div class="L2Dswitch" onclick="toggleL2D()"> L2D </div>
-
-        <div>
-        <select id="music_list" onchange="playSong()">
-            <option value="">Select a song</option>
-            <option value="./static_cv/music/陽20240927.m4a">陽</option>
-            <option value="./static_cv/music/无题20240927.m4a">无题</option>
-            <option value="./static_cv/music/空の箱20240927.m4a">空の箱</option>
-            <option value="./static_cv/music/锦鲤抄20240928.m4a">锦鲤抄</option>
-        </select>
-        
-        <audio controls  id="music_player">
-        </audio>
-        </div>
-        <!-- <input type="checkbox" id="L2Dswitch" /><label id="L2D-label" for="L2Dswitch">L2D</label> -->
-        
+  <main>
+    <div class="menu df fd-c">
+      <button class="btn" data-side="front">Intro</button>
+      <button class="btn" data-side="right">Education</button>
+      <button class="btn" data-side="back">Skills</button>
+      <button class="btn" data-side="left">Research</button>
+      <button class="btn" data-side="top">Projects</button>
+      <button class="btn" data-side="bottom">Contacts</button>
     </div>
-    <!-- <link rel="stylesheet" href="./static_cv/css/L2D.css"> -->
-    <script type="text/javascript">
-        var now = new Date();
-        var number = now.getYear().toString() + now.getMonth().toString() + now.getDate().toString() +
-            now.getHours().toString() + now.getMinutes().toString() + now.getSeconds().toString();
-        document.write('<script language="javascript" type="text/javascript" src="./static_cv/js/my_exp.js?ver=' + number + '"></scr' + 'ipt>');
-        document.write('<script language="javascript" type="text/javascript" src="./static_cv/js/index.js?ver=' + number + '"></scr' + 'ipt>');
-    </script>
-    <!-- <script src="./../cube.min.js"></script> -->
-    <script type="text/javascript">
+    <section class="scene">
+      <div class="cube show-front" id="cube" data-side="front">
+
+        <div class="cube-face cube-face-front">
+          <div class="intro-wrapper df fd-r">
+            <div class="intro">
+            <h1 class="intro-heading">Ziang Liu, CS PhD @ Brown University</h1>
+            <p class="intro-text">I design interpretable, unsupervised machine-learning and visualization methods that uncover structure in high-dimensional scientific data. </p>
+            <p class="intro-text">I love graphics, machine learning and unravelling the secret of nature.</p>
+          </div>
+            <div class="image df fd-r">
+            <div class="image-wrapper">
+              <img src="./static_cv/img/myself.png" alt="">
+            </div>
+          </div>
+          </div>
+          
+        </div>
         
-        function playSong() {
-            var song = document.getElementById("music_list").value;
-            var audioPlayer = document.getElementById("music_player");
+        
+        <div class="cube-face cube-face-back">
+          <p class="intro-heading">Ski<span>lls</span></p>
+          <div class="certificate-section df fd-r" style="width: 100%;">
+            <h4 class="certificate-date">Programming</h4>
+            <h4 class="certificate-heading">Python, C/C++, C#, Cuda, Javascript</h4>
+          </div>
+          <div class="certificate-section df fd-r" style="width: 100%;">
+            <h4 class="certificate-date">Tools</h4>
+            <h4 class="certificate-heading">Unity, Solidworks, Jupyter, Qt</h4>
+          </div>
+          <div class="certificate-section df fd-r" style="width: 100%;">
+            <h4 class="certificate-date">Graphics</h4>
+            <h4 class="certificate-heading">Visualization, OpenGL</h4>
+          </div>
+          <div class="certificate-section df fd-r" style="width: 100%;">
+            <h4 class="certificate-date">Machine Learning</h4>
+            <h4 class="certificate-heading">Classic ML, Deep learning, Neural fields.</h4>
+          </div>
+        </div>
+        
+        
+        <div class="cube-face cube-face-right">
+          
+          <p class="intro-heading">Educa<span>tion</span></p>
+          <div class="work-edu-section df fd-r" style="width: 100%;">
+            <h4 class="work-edu-heading date">2023-now</h4>
+            <div class="work-edu-info">
+              <h4 class="work-edu-heading company">Brown University</h4>
+              <ul>
+                <li>Ph.D. Computer Science</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="work-edu-section df fd-r" style="width: 100%;">
+            <h4 class="work-edu-heading date">2021-2023</h4>
+            <div class="work-edu-info">
+              <h4 class="work-edu-heading company">Brown University</h4>
+              <ul>
+                <li>Sc.M. Computer Science</li>
+              </ul>
+            </div>
+          </div>
 
-            if (song) {
-                audioPlayer.src = song;
-                audioPlayer.play();
-            }
-        }
+          <div class="work-edu-section df fd-r" style="width: 100%;">
+            <h4 class="work-edu-heading date">2016-2020</h4>
+            <div class="work-edu-info">
+              <h4 class="work-edu-heading company">Shanghai Jiao Tong University</h4>
+              <ul>
+                <li>Sc.B. Mechanical Engineering</li>
+              </ul>
+            </div>
+          </div>
 
-        function toggleL2D() {
 
-            L2dwidgets = document.getElementsByClassName("live2d-widget-container");
-
-            if (L2dwidgets.length < 1){
-                var t = document.getElementsByClassName("L2Dswitch")[0];
-                t.classList.add("L2Dswitch-focus");
-
-                L2Dwidget
-                .on('*', (name) => {
-                    console.log('%c EVENT ' + '%c -> ' + name, 'background: #222; color: yellow', 'background: #fff; color: #000')
-                })
-                .init({
-                    model: {
-                        jsonPath: "static/l2d/Suzukaze/model.json",
-                        // jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@latest/assets/shizuku.model.json",
-                        scale: 1
-                    },
-                    dialog: {
-                        // 开启对话框
-                        enable: false,
-                        script: {
-                            'tap body': 'The contents thicken every day.',
-                            'tap face': 'Please send any advice to ziang_liu@brown.edu!'
-                        }
-                    },
-                    react: {
-                        opacity: 0.5,
-                    },
-                    mobile: {
-                        enable: true
-                    }
-                });
-            }
-            else{
+        </div>
+        
+        
+        <div class="cube-face cube-face-left">
+          <p class="intro-heading">Re<span>sea</span>rch</p>
+          <div>
+            <h5 class="certificate-heading" style="float: left;">Global Ecosystem Dynamics Investigation</h5>
+            <div style="clear: both;">
+                <p class="research-text">Ecosystem structure influences aboveground biomass storage, influences the global carbon cycle, and supports the provision of food and habitats for humans and other species. </p>
+                <p class="research-text">I develop methods for GEDI data to quantify ecosystem structure variability.</p>
+            </div>
             
-                if (document.getElementById("live2d-widget").style.display != "none")
-                {
-                    document.getElementById("live2d-widget").style.display = "none";
-                    var t = document.getElementsByClassName("L2Dswitch")[0];
-                    t.classList.remove("L2Dswitch-focus");
-                    // L2Dswitch-focus
-                }
-                else {
-                    document.getElementById("live2d-widget").style.display = "block";
-                    var t = document.getElementsByClassName("L2Dswitch")[0];
-                    t.classList.add("L2Dswitch-focus");
-                }
+          </div>
+          <div style="margin-top: 10px;">
+            <h5 class="certificate-heading" style="float: left;">Diffusion MRI</h5>
+            <div style="clear: both;">
+                <p class="research-text">Brain microstructure is challenging to characterize due to the complexity of MRI signals and the delicate structure of brain tissues. </p>
+                <p class="research-text">I study the complate profile of MRI signals to extract features of microstrutures for segmentaion and leision detection.</p>
+            </div>
+          </div>
 
-            }
-
-        }
-
-
-    </script>
+          
+        </div>
+        
+        
+        <div class="cube-face cube-face-top">
+          <p class="intro-heading"><span>Pro</span>jects</p>
+          <div class="projects">
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">SLAM testbed</p>
+                <a class="visit-app" href="https://ieeexplore.ieee.org/document/8702610">Visit <i class="fas fa-link"></i></a>
+              </div>
+                </div>
+            </div>
+            
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">Coogan</p>
+                  <a class="visit-app" href="https://github.com/neuralchen/CooGAN">Visit <i class="fas fa-link"></i></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">Knowledge Transfer</p>
+                  <a class="visit-app" href="https://github.com/AceSix/Knowledge_Transfer">Visit <i class="fas fa-link"></i></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">Undersea Scene</p>
+                  <!-- <a class="visit-app" href="">Visit <i class="fas fa-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">Fire Simulation</p>
+                  <a class="visit-app" href="https://github.com/herewegoblueno/team-wildfire">Visit <i class="fas fa-link"></i></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="project-border">
+              <div class="project-wrapper">
+                <div class="visit-wrapper">
+                  <p class="app-title">Ecosystem Variability</p>
+                  <!-- <a class="visit-app" href="">Visit <i class="fas fa-link"></i></a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        <div class="cube-face cube-face-bottom">
+          <p class="intro-heading">Con<span>tacts</span></p>
+          <h4 class="work-edu-heading"><i class="fas fa-location-arrow"></i> Ziang Liu</h4>
+          <h4 class="work-edu-heading"><i class="far fa-envelope"></i> ziang_liu@brown.edu</h4>
+          <!-- <h4 class="work-edu-heading"><i class="fas fa-phone"></i> +359 889 111 222</h4> -->
+          <div class="social-media-btns">
+            <i class="fab fa-linkedin" href="https://www.linkedin.com/in/ziang-liu-b51991254/"></i>
+            <i class="fab fa-github" href="https://github.com/AceSix"></i>
+            <i class="fab fa-orcid" href="https://orcid.org/0000-0002-9141-8255"></i>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
+</html>
+    <script  src="./static_cv/js/index.js"></script>
 
+  </body>
+  
 </html>
