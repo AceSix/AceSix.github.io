@@ -260,11 +260,11 @@ button:hover {
   margin: 0 0;
 }
 
-.social-media-btns>i {
-  font-size: 50px;
-  margin: 5px 10px;
+.social-media-btns i {
+  font-size: 30px;
+  margin: 5px 5px;
 }
-.social-media-btns>i:hover {
+.social-media-btns i:hover {
   cursor: pointer;
   color: var(--blue);
 }
